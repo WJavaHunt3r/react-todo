@@ -2,101 +2,56 @@
 import './App.css';
 import Todo from "./components/Todo";
 import Form from "./components/Form";
-import FilterButton from "./components/FilterButton";
+import Layout from "./components/Layout";
+import FilterButton from "./components/State";
 import React, {useState} from "react";
 import { nanoid } from "nanoid";
-import { AppBar, ButtonGroup, Tabs } from '@material-ui/core';
+import { AppBar, Grid, List, Paper, Tabs } from '@material-ui/core';
+import State from './components/State';
 
 
 const FILTER_MAP = {
-  All: () => true,
-  Active: task => !task.completed,
-  Completed: task => task.completed
+  Todo: task => task.state = 'Todo',
+  Active: task => task.state = 'Active',
+  Completed: task => task.state = 'Completed',
+  Delayed: task => task.state = 'Delayed'
 };
 const FILTER_NAMES = Object.keys(FILTER_MAP);
 
 
 function App(props) {
-  const [tasks, setTasks] = useState(props.tasks);
-  function toggleTaskCompleted(id) {
-    const updatedTasks = tasks.map(task=>{
-      if (id=== task.id) {
-        return {...task, completed: !task.completed}
-      }
-      return  task;
-    })
-    setTasks(updatedTasks);
-  }
-
-  function deleteTask(id){
-    const remainingTasks = tasks.filter(task=> id !== task.id);
-    setTasks(remainingTasks);
-  }
-
-  function editTask(id, newName){
-    const editedTasks = tasks.map(task => {
-      if(id === task.id){
-        return{...task, name:newName}
-      }
-      return task;
-    });
-    setTasks(editedTasks);
-  }
-
-  const [filter, setFilter] = useState('All');
+  const [tasks, setTasks] = useState(props.tasks);  
   
-    const filterList = FILTER_NAMES.map(name => (      
-        <FilterButton 
+    const filterList = FILTER_NAMES.map( name => (      
+        <State
           key={name} 
           name={name}
-          //isPressed={name===filter}
-          setFilter={setFilter}
-        />  
-    ));
-  const taskList = tasks.filter(FILTER_MAP[filter])
-  .map(task => (
-    <Todo 
-      id={task.id}
-      name = {task.name}
-      completed={task.completed}
-      key={task.id}
-      toggleTaskCompleted={toggleTaskCompleted}
-      deleteTask={deleteTask}
-      editTask={editTask}
-      />
-    )
-  );
-  const tasksNoun = taskList.length !== 1 ? 'tasks' : 'task';
-  const headingText = `${taskList.length} ${tasksNoun} remaining`;
-  
-
-  return (
-    <div className="todoapp stack-large">
-      <h1>My Todo</h1>
-      <Form addTask={addTask}/>
-      <AppBar position="static">
-        <Tabs  aria-label="simple tabs example">
-          {filterList}
-        </Tabs>
-      </AppBar>
-      <h2 id="list-heading">
-        {headingText}
-      </h2>
-      <ul
-        role="list"
-        className="todo-list stack-large stack-exception"
-        aria-labelledby="list-heading"
-      >
-        {taskList}
-      
+          tasks={tasks}
+          setTasks={setTasks}
+        ></State> 
         
-      </ul>
-    </div>
-  );
-  function addTask(name) {
-    const newTask = { id: "todo-" + nanoid(), name: name, completed: false };
+    ));
+ 
+  /*const tasksNoun = taskList.length !== 1 ? 'tasks' : 'task';
+  const headingText = `${taskList.length} ${tasksNoun} remaining`;*/
+  
+  function addTask(name, desc) {
+    const newTask = { id: "todo-" + nanoid(), name: name, desc: desc, state: 'Todo' };
     setTasks([...tasks, newTask]);
   }
+  return (
+   <Layout>
+      <Form addTask={addTask}/>
+      <Grid container justify="center" spacing={5}>
+        {filterList}
+      </Grid>
+      <h2 id="list-heading">
+        
+      </h2>
+      
+    </Layout>
+  );
+  
 }
 
 export default App;
