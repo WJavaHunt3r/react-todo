@@ -1,17 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+//import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+//import CssBaseline from '@material-ui/core/CssBaseline';
+//import { ThemeProvider } from '@material-ui/core/styles';
 
 
 const DATA = [
-  { id: "todo-0", name: "Eat", completed: true },
-  { id: "todo-1", name: "Sleep", completed: false },
-  { id: "todo-2", name: "Repeat", completed: false }
-]
+  { id: "todo-0", name: "Eat", desc: "dasd", state: 'Todo' },
+  { id: "todo-1", name: "Sleep", desc: "dasd", state: 'Completed' },
+  { id: "todo-2", name: "Repeat", desc: "das", state: 'Delayed' }
+];
 ReactDOM.render(
+  //<CssBaseline />
   <App tasks = {DATA} />,
   document.getElementById('root')
 );
