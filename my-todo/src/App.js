@@ -5,6 +5,8 @@ import Form from "./components/Form";
 import FilterButton from "./components/FilterButton";
 import React, {useState} from "react";
 import { nanoid } from "nanoid";
+import { AppBar, ButtonGroup, Tabs } from '@material-ui/core';
+
 
 const FILTER_MAP = {
   All: () => true,
@@ -42,14 +44,15 @@ function App(props) {
   }
 
   const [filter, setFilter] = useState('All');
-  const filterList = FILTER_NAMES.map(name => (
-    <FilterButton 
-      key={name} 
-      name={name}
-      isPressed={name===filter}
-      setFilter={setFilter}
-    />
-  ));
+  
+    const filterList = FILTER_NAMES.map(name => (      
+        <FilterButton 
+          key={name} 
+          name={name}
+          //isPressed={name===filter}
+          setFilter={setFilter}
+        />  
+    ));
   const taskList = tasks.filter(FILTER_MAP[filter])
   .map(task => (
     <Todo 
@@ -71,9 +74,11 @@ function App(props) {
     <div className="todoapp stack-large">
       <h1>My Todo</h1>
       <Form addTask={addTask}/>
-      <div className="filters btn-group stack-exception">
-        {filterList}
-      </div>
+      <AppBar position="static">
+        <Tabs  aria-label="simple tabs example">
+          {filterList}
+        </Tabs>
+      </AppBar>
       <h2 id="list-heading">
         {headingText}
       </h2>
