@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { Accordion, AccordionDetails, AccordionSummary, Button, ButtonGroup, FormGroup, Paper, TextField, Typography } from '@material-ui/core';
+import { Accordion, AccordionDetails, AccordionSummary, Button, ButtonGroup, FormGroup, TextField, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import DeleteIcon from '@material-ui/icons/Delete';
 import SaveIcon from '@material-ui/icons/Save';
@@ -73,7 +73,6 @@ export default function Todo(props) {
     setEditing(false);
   }
 
-  console.log(props);
   const editingTemplate = (
     <form noValidate autoComplete="off" onSubmit={handleSubmit}>
       <FormGroup>
@@ -155,13 +154,15 @@ export default function Todo(props) {
           
           <Button          
             color= "default"
-            //onClick={() => props.deleteTask(props.id)}
+            disabled= {props.isLast}
+            onClick={() => props.priorityDown(props.id)}
             startIcon={<ArrowDownwardIcon />}
             style={{ paddingRight: 4 }}
           />
           <Button          
             color= "default"
-           // onClick={() => props.deleteTask(props.id)}
+            onClick={() => props.priorityUp(props.id)}
+            disabled= {props.isFirst}
             startIcon={<ArrowUpwardIcon />}
             style={{ paddingRight: 4 }}
           />
