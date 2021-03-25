@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Grid, List, Paper, Tab } from '@material-ui/core';
+import { Grid, Paper} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Todo from "./Todo";
 
@@ -17,25 +16,26 @@ const useStyles = makeStyles((theme) => ({
   
 function State(props){
     const classes = useStyles(); 
-    function toggleTaskCompleted(id) {
+    function toggleTaskCompleted(id, state) {
       const updatedTasks = props.tasks.map(task=>{
         if (id=== task.id) {
-          return {...task, state: 'Completed'}
+          return {...task, state: state}
         }
         return  task;
       })
       props.setTasks(updatedTasks);
     }
+
   
     function deleteTask(id){
       const remainingTasks = props.tasks.filter(task=> id !== task.id);
       props.setTasks(remainingTasks);
     }
   
-    function editTask(id, newName, newDesc){
+    function editTask(id, newName, newDesc, deadline){
       const editedTasks = props.tasks.map(task => {
         if(id === task.id){
-          return{...task, name: newName, desc: newDesc}
+          return{...task, name: newName, desc: newDesc, deadline: deadline}
         }
         return task;
       });
@@ -43,7 +43,28 @@ function State(props){
     }
 
     const filtered = props.tasks.filter(task => {return task.state === props.name})
-    console.log(props);
+
+    function priorityDown(id){
+      const curr = filtered.findIndex(task => id===task.id);
+      const next = props.tasks.findIndex(task=> filtered[curr+1].id === task.id);
+      const propsCurr = props.tasks.findIndex(task => id===task.id);
+      const newOrder = props.tasks.map(task=>{ 
+        return task});
+      newOrder.splice(next,0, newOrder.splice(propsCurr,1)[0])
+      props.setTasks(newOrder);
+    }
+    
+    function priorityUp(id){
+      const curr = filtered.findIndex(task => id===task.id);
+      const prev = props.tasks.findIndex(task=> filtered[curr-1].id === task.id);
+      const propsCurr = props.tasks.findIndex(task => id===task.id);
+      const newOrder = props.tasks.map(task=>{ 
+        return task});
+      newOrder.splice(prev,0, newOrder.splice(propsCurr,1)[0])
+      props.setTasks(newOrder);
+    }
+
+    
     const taskList = filtered.map(task => (
       <Todo 
         id={task.id}
@@ -51,9 +72,14 @@ function State(props){
         state={task.state}
         desc={task.desc}
         key={task.id}
+        deadline = {task.deadline}
+        isFirst = {filtered.findIndex(t => task.id === t.id) === 0}
+        isLast = {filtered.findIndex(t=> task.id === t.id) === filtered.length-1}
         toggleTaskCompleted={toggleTaskCompleted}
         deleteTask={deleteTask}
         editTask={editTask}
+        priorityUp={priorityUp}
+        priorityDown={priorityDown}
         />
       )
     );
@@ -61,16 +87,13 @@ function State(props){
     return(      
         <Grid item xs={3}
           className={classes.box} >           
-          <Paper    
-            
+          <Paper                
             style={{padding:10, backgroundColor: '#aafafa',}}
-            label={props.name}
-            
+            label={props.name}           
           >  
           {props.name}
           {taskList}
-          </Paper>
-          
+          </Paper>        
         </Grid>
     );
     

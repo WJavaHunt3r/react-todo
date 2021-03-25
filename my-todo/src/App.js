@@ -1,12 +1,10 @@
 
 import './App.css';
-import Todo from "./components/Todo";
 import Form from "./components/Form";
 import Layout from "./components/Layout";
-import FilterButton from "./components/State";
 import React, {useState} from "react";
 import { nanoid } from "nanoid";
-import { AppBar, Grid, List, Paper, Tabs } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import State from './components/State';
 
 
@@ -35,8 +33,8 @@ function App(props) {
   /*const tasksNoun = taskList.length !== 1 ? 'tasks' : 'task';
   const headingText = `${taskList.length} ${tasksNoun} remaining`;*/
   
-  function addTask(name, desc) {
-    const newTask = { id: "todo-" + nanoid(), name: name, desc: desc, state: 'Todo' };
+  function addTask(name, desc, deadline) {
+    const newTask = { id: "todo-" + nanoid(), name: name, desc: desc, state: 'Todo', deadline: deadline};
     setTasks([...tasks, newTask]);
   }
   return (
@@ -45,9 +43,9 @@ function App(props) {
       <Grid container justify="center" spacing={5}>
         {filterList}
       </Grid>
-      <h2 id="list-heading">
+      <Typography id="list-heading">
         
-      </h2>
+      </Typography>
       
     </Layout>
   );
