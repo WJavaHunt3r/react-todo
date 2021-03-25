@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import 'date-fns';
 import { Accordion, AccordionDetails, AccordionSummary, Button, ButtonGroup, FormGroup, TextField, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -45,6 +46,11 @@ const useStyles = makeStyles((theme) => ({
     fontSize: theme.typography.pxToRem(20),
     color: theme.palette.text.secondary,
   },
+  dateTextField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: 200,
+  },
   root: {
     '& .MuiTextField-root': {
       margin: theme.spacing(1),
@@ -57,19 +63,25 @@ export default function Todo(props) {
   const classes = useStyles();
 
   const [isEditing, setEditing] = useState(false);
-  const [newDesc, setNewDesc] = useState('');
+  const [newDesc, setNewDesc] = useState(props.desc);
   function handleNewDesc(e) {
     setNewDesc(e.target.value);
   }
-  const [newName, setNewName] = useState('');
+  const [newName, setNewName] = useState(props.name);
   function handleNewName(e) {
     setNewName(e.target.value);
   }
+
+  const [newDate, setNewDate] = useState(props.date);
+  function handleNewDate(e) {
+    setNewDate(e.target.value);
+  }
   function handleSubmit(e) {
     e.preventDefault();
-    props.editTask(props.id, newName, newDesc);
+    props.editTask(props.id, newName, newDesc, newDate);
     setNewDesc("");
     setNewName("");
+    setNewDate("");
     setEditing(false);
   }
 
@@ -82,7 +94,7 @@ export default function Todo(props) {
           variant="filled"
           size="medium"
           label={`New name for: ${props.name}`}
-          defaultValue={props.name}
+          //defaultValue={props.name}
           value={newName}
           onChange={handleNewName}
           
@@ -92,12 +104,24 @@ export default function Todo(props) {
           id="desc-field" 
           variant="filled"
           size="medium"
-          defaultValue= "nothing"
+          //defaultValue= "nothing"
           label={`New descieption for: ${props.name}`}
           value={newDesc}
           onChange={handleNewDesc}
           
            />
+            <TextField
+              id="date"
+              label="Deadline"
+              type="date"
+              //defaultValue="2021-03-25"
+              className={classes.dateTextField}
+              value={newDate}
+              onChange={handleNewDate}
+              InputLabelProps={{
+                shrink: true,
+              }}
+            />
       </FormGroup>
       <ButtonGroup fullWidth variant="outlined" aria-label="outlined primary button group">
       <Button 
@@ -127,8 +151,9 @@ export default function Todo(props) {
           id="panel1bh-header"
           //style={{margin:0, padding:0}}
         >
-          <Typography component="h1" variant="h1" className={classes.heading}>{props.name}</Typography>
           
+          <Typography component="h1" variant="h1" className={classes.heading}>{props.name}</Typography>
+          <Typography className={classes.secondaryHeading}>{props.deadline}</Typography>
         </AccordionSummary>
         <AccordionDetails >
           <Typography className={classes.secondaryHeading}>

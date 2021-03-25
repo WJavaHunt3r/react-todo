@@ -1,3 +1,4 @@
+import 'date-fns';
 import React , {useState} from "react";
 import { Button, Grid, Paper, TextField, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
@@ -20,6 +21,11 @@ const useStyles = makeStyles((theme) => ({
       margin: 5,
       width: "100%",
     },
+    dateTextField: {
+      marginLeft: theme.spacing(1),
+      marginRight: theme.spacing(1),
+      width: 200,
+    },
     button:{
         width: "50ch",
         justifyContent: "center",
@@ -29,6 +35,11 @@ const useStyles = makeStyles((theme) => ({
 
 function Form(props){
     const classes = useStyles();
+    const [newDate, setNewDate] = useState('');
+    function handleNewDate(e) {
+      setNewDate(e.target.value);
+    }
+    
     const [name, setName] = useState('');
     function handleChange(e){
         setName(e.target.value);
@@ -45,6 +56,7 @@ function Form(props){
                 What needs to be done?
             </Typography>
             <TextField
+              required 
               id="outlined-standard"
               variant="outlined"
               className={classes.textField}
@@ -55,6 +67,7 @@ function Form(props){
               fullWidth
             />
             <TextField
+              required 
               id="outlined-multiline-static"
               className={classes.textField}
               multiline
@@ -65,7 +78,20 @@ function Form(props){
               onChange={handleDescriptionChange}
               fullWidth
               />
-            <Button type="submit" color="primary" size="large" variant="contained" onClick={handleSubmit} className={classes.button}>
+              
+              <TextField
+                id="date"
+                label="Deadline"
+                type="date"
+                //defaultValue="2021-03-25"
+                className={classes.dateTextField}
+                value={newDate}
+                onChange={handleNewDate}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+            />
+                  <Button type="submit" color="primary" size="large" variant="contained" onClick={handleSubmit} className={classes.button}>
               Add
             </Button>
           </Grid>
@@ -74,11 +100,11 @@ function Form(props){
       
       function handleSubmit(e) {
         e.preventDefault();
-          if (name) {           
-            props.addTask(name, description);
+          if (name && description) {           
+            props.addTask(name, description, newDate);
             setName("");
             setDescription("");
-            
+            setNewDate("");
           }
         
       }

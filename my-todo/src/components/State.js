@@ -31,10 +31,10 @@ function State(props){
       props.setTasks(remainingTasks);
     }
   
-    function editTask(id, newName, newDesc){
+    function editTask(id, newName, newDesc, deadline){
       const editedTasks = props.tasks.map(task => {
         if(id === task.id){
-          return{...task, name: newName, desc: newDesc}
+          return{...task, name: newName, desc: newDesc, deadline: deadline}
         }
         return task;
       });
@@ -71,6 +71,7 @@ function State(props){
         state={task.state}
         desc={task.desc}
         key={task.id}
+        deadline = {task.deadline}
         isFirst = {filtered.findIndex(t => task.id === t.id) === 0}
         isLast = {filtered.findIndex(t=> task.id === t.id) === filtered.length-1}
         toggleTaskCompleted={toggleTaskCompleted}

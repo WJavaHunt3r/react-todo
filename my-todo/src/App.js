@@ -33,8 +33,8 @@ function App(props) {
   /*const tasksNoun = taskList.length !== 1 ? 'tasks' : 'task';
   const headingText = `${taskList.length} ${tasksNoun} remaining`;*/
   
-  function addTask(name, desc) {
-    const newTask = { id: "todo-" + nanoid(), name: name, desc: desc, state: 'Todo' };
+  function addTask(name, desc, deadline) {
+    const newTask = { id: "todo-" + nanoid(), name: name, desc: desc, state: 'Todo', deadline: deadline};
     setTasks([...tasks, newTask]);
   }
   return (

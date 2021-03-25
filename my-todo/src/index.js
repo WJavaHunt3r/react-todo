@@ -8,9 +8,9 @@ import reportWebVitals from './reportWebVitals';
 
 
 const DATA = [
-  { id: "todo-0", name: "Eat", desc: "dasd", state: 'Todo' },
-  { id: "todo-1", name: "Sleep", desc: "dasd", state: 'Completed' },
-  { id: "todo-2", name: "Repeat", desc: "das", state: 'Delayed' }
+  { id: "todo-0", name: "Eat", desc: "dasd", state: 'Todo' , deadLine: "2021-03-25"},
+  { id: "todo-1", name: "Sleep", desc: "dasd", state: 'Completed', deadLine: "2021-03-25" },
+  { id: "todo-2", name: "Repeat", desc: "das", state: 'Delayed', deadLine: "2021-03-25" }
 ];
 ReactDOM.render(
   //<CssBaseline />
