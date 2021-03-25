@@ -10,6 +10,8 @@ import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import { green } from "@material-ui/core/colors";
 import DoneOutlinedIcon from '@material-ui/icons/DoneOutlined';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import BlockIcon from '@material-ui/icons/Block';
+import PanToolIcon from '@material-ui/icons/PanTool';
 
 const useStyles = makeStyles((theme) => ({
   paper:{
@@ -25,6 +27,15 @@ const useStyles = makeStyles((theme) => ({
     '&:hover':{
       color: green[50],
       backgroundColor: green[700]
+    }
+  },
+  greenButtonOff: {     
+    color: green[50],
+    backgroundColor: green[700],
+    '&:hover':{
+      verticalalign:'middle',
+    display: 'inline-flex',
+    color: green[700],
     }
   },
   box: {
@@ -163,13 +174,29 @@ export default function Todo(props) {
           
         
         <ButtonGroup  className= {`${classes.box} ${classes.rightBox}`} variant="outlined" aria-label="outlined primary button group">
-          <Button  
-            className={classes.greenButton} 
-            onClick={() => props.toggleTaskCompleted(props.id)}
+          <Button
+            id="active-bompleted"
+            className= {props.state === 'Completed'? classes.greenButtonOff : classes.greenButton }
+            onClick={() => props.toggleTaskCompleted(props.id, 'Completed')}
             startIcon={<DoneOutlinedIcon />}
+            
             style={{ paddingRight: 4 }}
             />
-              
+          <Button  
+            id="active-button"
+            className={props.state === 'Active'? classes.greenButtonOff : classes.greenButton }
+            onClick={() => props.toggleTaskCompleted(props.id, 'Active')}
+            startIcon={<PanToolIcon />}
+            style={{ paddingRight: 4 }}
+            />
+          <Button  
+            color="default"
+            variant = {props.state === "Delayed" ? "contained" : "outlined"}
+            onClick={() => props.toggleTaskCompleted(props.id, 'Delayed')}
+            startIcon={<BlockIcon />}
+            style={{ paddingRight: 4 }}
+            />
+
           <Button
           color="primary" 
           onClick={()=>setEditing(true)}
@@ -193,7 +220,7 @@ export default function Todo(props) {
           />
           <Button
                     
-            variant="contained" 
+            //variant="contained" 
             color= "secondary"
             onClick={() => props.deleteTask(props.id)}
             tyle={{ paddingRight: 4 }}

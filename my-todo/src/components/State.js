@@ -16,15 +16,16 @@ const useStyles = makeStyles((theme) => ({
   
 function State(props){
     const classes = useStyles(); 
-    function toggleTaskCompleted(id) {
+    function toggleTaskCompleted(id, state) {
       const updatedTasks = props.tasks.map(task=>{
         if (id=== task.id) {
-          return {...task, state: 'Completed'}
+          return {...task, state: state}
         }
         return  task;
       })
       props.setTasks(updatedTasks);
     }
+
   
     function deleteTask(id){
       const remainingTasks = props.tasks.filter(task=> id !== task.id);
