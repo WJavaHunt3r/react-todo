@@ -1,1 +1,7 @@
 node_modules
+/raect-todo/raect-todo/bin/Debug/net5.0
+/raect-todo/raect-todo/obj/Debug/net5.0/staticwebassets
+/raect-todo/raect-todo/obj/Debug/net5.0/ref
+/raect-todo/raect-todo/obj/*
+/raect-todo/.vs/*
+/raect-todo/.vs/raect-todo/config
