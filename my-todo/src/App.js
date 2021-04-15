@@ -40,6 +40,7 @@ function App(props) {
   return (
    <Layout>
       <Form addTask={addTask}/>
+      {console.log(tasks)}
       <Grid container justify="center" spacing={5}>
         {filterList}
       </Grid>
