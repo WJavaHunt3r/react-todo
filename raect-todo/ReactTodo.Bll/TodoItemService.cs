@@ -34,15 +34,17 @@ namespace ReactTodo.Bll
 
         public async Task<TodoItemDto> PostTodoItemAsync(TodoItemDto todoItemDto)
         {
+            var boards = await GetBoardsAsync();
             var todoItem = new TodoItem
             {
                 Title = todoItemDto.Title,
                 DeadLine = todoItemDto.DeadLine,
                 Description = todoItemDto.Description,
-                Priority = todoItemDto.Priority,
-                BoardId = todoItemDto.BoardId
+                BoardId = 1,
+                Priority = boards.Where(t=>t.Id==1).First().TodoItems.Count+1
 
-            };
+
+        };
 
 
             DbContext.TodoItems.Add(todoItem);
@@ -65,7 +67,7 @@ namespace ReactTodo.Bll
 
         public async Task<BoardDto> GetBoardAsync(long id)
         {
-            var allBoards = await DbContext.Boards.Select(t => new BoardDto(t.Id, t.Name, ItemsToDTO(t.TodoItems))).ToListAsync();
+            var allBoards = await GetBoardsAsync();
             return allBoards.Where(t => t.Id == id).FirstOrDefault();
 
         }
@@ -80,6 +82,9 @@ namespace ReactTodo.Bll
             }
 
             DbContext.TodoItems.Remove(todoItem);
+            //UpdateBoardAfterDeleteAsync(todoItem.BoardId, todoItem.Priority);
+            var todos = await DbContext.TodoItems.Where(t => t.BoardId == todoItem.BoardId && t.Priority >= todoItem.Priority).ToListAsync();
+            todos.Select(async t => await UpdateTodoItemAsync(t.Id, new TodoItemDto(t.Id, t.Title, t.Description, t.DeadLine, t.Priority - 1, t.BoardId)));
             await DbContext.SaveChangesAsync();
 
             return 1;
@@ -156,6 +161,11 @@ namespace ReactTodo.Bll
         public async Task<BoardDto> UpdateBoardAsync(long id, BoardDto boardDto)
         {
             throw new NotImplementedException();
+        }
+
+        public async void UpdateBoardAfterDeleteAsync(long id, int priority)
+        {
+            
         }
 
         private bool TodoItemExists(long id) =>
