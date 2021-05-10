@@ -53,7 +53,7 @@ function Form(props){
         <Paper className={classes.root}>
           <Grid container className={classes.grid}>
             <Typography variant="h2" component="h2">
-                What needs to be done?
+                Add a Todo!
             </Typography>
             <TextField
               required 
