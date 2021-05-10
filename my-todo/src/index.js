@@ -5,7 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 //import CssBaseline from '@material-ui/core/CssBaseline';
 //import { ThemeProvider } from '@material-ui/core/styles';
-
+import {
+  BrowserRouter as Router
+} from "react-router-dom"
 
 const DATA = [
   { id: "todo-0", name: "Eat", desc: "dasd", state: 'Todo' , deadLine: "2021-03-25"},
@@ -13,8 +15,9 @@ const DATA = [
   { id: "todo-2", name: "Repeat", desc: "das", state: 'Delayed', deadLine: "2021-03-25" }
 ];
 ReactDOM.render(
-  //<CssBaseline />
-  <App tasks = {DATA} />,
+  <Router>
+    <App tasks = {DATA} />
+  </Router>,
   document.getElementById('root')
 );
 

@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   })); 
 
   
-function State(props){
+function Board(props){
     const classes = useStyles(); 
     function toggleTaskCompleted(id, state) {
       const updatedTasks = props.tasks.map(task=>{
@@ -99,4 +99,4 @@ function State(props){
     
 }
 
-export default State;
+export default Board;

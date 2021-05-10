@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     }
   }));
 
-function Form(props){
+function NewEdit(props){
     const classes = useStyles();
     const [newDate, setNewDate] = useState('');
     function handleNewDate(e) {
@@ -110,4 +110,4 @@ function Form(props){
       }
 }
 
-export default Form;
+export default NewEdit;
