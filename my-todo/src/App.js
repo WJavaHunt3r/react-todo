@@ -13,7 +13,7 @@ import Home from './components/Home';
 
 
 
-function App(props) {
+function App() {
    
   
     
@@ -36,14 +36,6 @@ function App(props) {
          <Home />
        </Route>
      </Switch>
-     {/* <NewEdit addTask={addTask}/>
-      {console.log(tasks)}
-      <Grid container justify="center" spacing={5}>
-        {filterList}
-      </Grid>
-      <Typography id="list-heading">
-        
-  </Typography>*/}
       
     </Layout>
   );

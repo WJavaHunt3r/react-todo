@@ -2,7 +2,7 @@ import 'date-fns';
 import React , {useEffect, useState} from "react";
 import { Button, Grid, Paper, TextField, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { useLocation, useHistory } from 'react-router-dom'
+import { useLocation,  Link } from 'react-router-dom'
 const useStyles = makeStyles((theme) => ({
     grid: {
      
@@ -36,7 +36,6 @@ const useStyles = makeStyles((theme) => ({
 function NewEdit(props){
     const classes = useStyles();
     const loc = useLocation();
-    const history = useHistory();
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [task, setTask] = useState("");
@@ -131,6 +130,9 @@ function NewEdit(props){
                   <Button type="submit" color="primary" size="large" variant="contained" onClick={handleSubmit}  className={classes.button}>
                     Add
                   </Button>
+                  <Button id="back" type="submit" color="primary" size="large" variant="contained"  component={Link} to={`/`}   className={classes.button}>
+                    Home
+                  </Button>
                 
           </Grid>
         </Paper>
@@ -147,14 +149,13 @@ function NewEdit(props){
               "priority":0,
               "boardId":0
             };
-            //console.log(todoItem);
+
             (loc.pathname !== "/new") ? editTask(todoItem) : addTask(todoItem);
 
             
             setName("");
             setDescription("");
             setNewDate("");
-            history.push("/");
           }       
       }
       function addTask(todoItem) {

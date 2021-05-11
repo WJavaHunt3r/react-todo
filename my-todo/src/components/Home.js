@@ -4,39 +4,33 @@ import { Button, Grid } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import AddIcon from '@material-ui/icons/Add';
 import { Link} from "react-router-dom";
-import { DragDropContext,Droppable ,Draggable  } from 'react-beautiful-dnd';
+import { DragDropContext  } from 'react-beautiful-dnd';
 
 function Home(props){
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [boards, setboards] = useState([]); 
-    /*function addTask(name, desc, deadline) {
-        const newTask = { id: "todo-" + nanoid(), name: name, desc: desc, state: 'Todo', deadline: deadline};
-        setTasks([...tasks, newTask]);
-      }*/
-    const filterList = boards.map( item => {
-        return(  
-        
-            <Droppable key={item.id} droppableId={item.id.toString()}>
-                {(provided) => ( 
-                <Grid container justify="center" spacing={4}  className={item.id.toString()}{...provided.droppableProps} ref={provided.innerRef}>
-                    <Board
-                        
-                        id={item.id}
-                        name={item.name}
-                        tasks={props.tasks}
-                        //setTasks={setTasks}
-                    ></Board>
-                    {provided.placeholder}
-                </Grid>
-                )}
-            </Droppable>
-        
-        )}
-        
-    );
+   
+    function handleOnDragEnd(result) {
+        if(!result.destination) return;
+        const todo = boards[result.source.droppableId-1].todoItems[result.source.index];
+        todo.boardId = result.destination.droppableId;
+        todo.priority = result.destination.index;
+        fetch('https://localhost:5001/api/todoitems/' + result.draggableId, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(todo )
+          })
+            .then(data => data.json())
+            .then(
+              (result) => {
+                getBoards();
+              })          
+    }
 
-    useEffect(()=>{
+    function getBoards(){
         fetch("https://localhost:5001/api/boards").then(res => res.json())
         .then(
           (result) => {
@@ -48,7 +42,11 @@ function Home(props){
             setIsLoaded(true);
             setError(error);
           }
-        )
+        )}
+    
+
+    useEffect(()=>{
+        getBoards();
     }, [])
     if(error){
         return <div>An Error occourd:{error.message}</div>
@@ -60,7 +58,7 @@ function Home(props){
     return(
         
         <React.Fragment>
-        <Grid container spacing={5}>
+        <Grid container>
             <Grid item xs={12}>
             <Link to="/new">
                 <Button variant="contained" color="primary" justify="center" startIcon={<AddIcon/>}>                   
@@ -68,41 +66,25 @@ function Home(props){
                 </Button>
             </Link>
             </Grid>
-            
-            <Grid item xs={12} >
-            
-            <Grid container justify="center" spacing={4}>
-            <DragDropContext>
-            {boards.map( item => {
-                return(  
-                
-                    <Droppable key={item.id} droppableId={item.id.toString()}>
-                        {(provided) => ( 
-                        <div className={item.id.toString()}{...provided.droppableProps} ref={provided.innerRef}>
-                            <Board
-                                
-                                id={item.id}
-                                name={item.name}
-                                tasks={props.tasks}
-                                //setTasks={setTasks}
-                            ></Board>
-                            {provided.placeholder}
-                        </div>
+                <Grid container justify="center" spacing={4}>
+                    <DragDropContext onDragEnd={handleOnDragEnd}>
+                        {boards.map( item => {
+                            return(  
+
+                                <Board
+                                    key={item.id}
+                                    id={item.id}
+                                    name={item.name}
+                                    //tasks={props.tasks}
+                                />
+                            
+                            )}
+                            
                         )}
-                    </Droppable>
-                
-                )}
-                
-            )}
-            </DragDropContext>
+                    </DragDropContext>
+                </Grid>
             </Grid>
-            
-            </Grid>
-            
-            
-            
-        </Grid>
-        
+       
        </React.Fragment>
        
     );

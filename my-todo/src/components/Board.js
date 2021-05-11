@@ -2,8 +2,7 @@ import { Grid, Paper} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useEffect, useState } from 'react';
 import Todo from "./Todo";
-import { DragDropContext,Droppable ,Draggable  } from 'react-beautiful-dnd';
-//import {useHistory} from "react-router-dom"
+import { Droppable ,Draggable  } from 'react-beautiful-dnd';
 const useStyles = makeStyles((theme) => ({
     button:{
       margin: theme.spacing(2),
@@ -31,16 +30,7 @@ function Board(props){
   if(!isLoaded){
     //return <div>Still loading...</div>
   }
-    function toggleTaskCompleted(id, state) {
-      const updatedTasks = tasks.map(task=>{
-        if (id=== task.id) {
-          return {...task, state: state}
-        }
-        return  task;
-      })
-      setTasks(updatedTasks);
-    }
-
+    
   
     function deleteTask(id){
       fetch("https://localhost:5001/api/todoitems/"+id, { method: 'DELETE' })
@@ -62,54 +52,6 @@ function Board(props){
         }
       )
     }
-
-    
-
-    function priorityDown(id){
-      const curr = tasks.findIndex(task => id===task.id);
-      const next = tasks.findIndex(task=> tasks[curr+1].id === task.id);
-      const propsCurr = tasks.findIndex(task => id===task.id);
-      const newOrder = tasks.map(task=>{ 
-        return task});
-      newOrder.splice(next,0, newOrder.splice(propsCurr,1)[0])
-      props.setTasks(newOrder);
-    }
-    
-    function priorityUp(id){
-      const curr = tasks.findIndex(task => id===task.id);
-      const prev = tasks.findIndex(task=> tasks[curr-1].id === task.id);
-      const propsCurr = tasks.findIndex(task => id===task.id);
-      const newOrder = tasks.map(task=>{ 
-        return task});
-      newOrder.splice(prev,0, newOrder.splice(propsCurr,1)[0])
-      props.setTasks(newOrder);
-    }
-
-    
-    const taskList = tasks.map((task, index) => (
-      
-      <Draggable key={task.id} draggableId= {task.id.toString()} index={index}>
-        {(provided) => (
-        <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-        <Todo 
-          id={task.id}
-          title = {task.title}
-          state={props.name}
-          desc={task.description}          
-          deadline = {task.deadLine}
-          priority = {task.priority}
-          isFirst = {tasks.findIndex(t => task.id === t.id) === 0}
-          isLast = {tasks.findIndex(t=> task.id === t.id) === tasks.length-1}
-          toggleTaskCompleted={toggleTaskCompleted}
-          deleteTask={deleteTask}
-          priorityUp={priorityUp}
-          priorityDown={priorityDown}
-          />
-        </li>
-        )}
-      </Draggable>
-      )
-    );
   
     return(
       
@@ -123,7 +65,36 @@ function Board(props){
                 label={props.name}           
               >  
                 {props.name}
-                {taskList}
+                <Droppable droppableId={props.id.toString()}>
+                  {(provided, snapshot) => (
+                    <div
+                      ref={provided.innerRef}
+                      {...provided.droppableProps}
+                      
+                      >
+                      {tasks.map((task, index) => (
+            
+                      <Draggable key={task.id} draggableId= {task.id.toString()} index={index}>
+                        {(provided) => (
+                        <div key={task.id} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                        <Todo 
+                          id={task.id}
+                          title = {task.title}
+                          state={props.name}
+                          desc={task.description}          
+                          deadline = {task.deadLine}
+                          priority = {task.priority}                          
+                          deleteTask={deleteTask}
+                          />
+                        </div>
+                        )}
+                      </Draggable>
+                      )
+                    )}
+                    {provided.placeholder}
+                    </div>
+                  )}
+                </Droppable>
               </Paper>
                   
               
