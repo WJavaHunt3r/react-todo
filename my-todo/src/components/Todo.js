@@ -75,16 +75,16 @@ export default function Todo(props) {
   return (
 
     
-    <Accordion className={classes.paper}>
+    <Accordion className={classes.paper} >
       <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1bh-content"
           id="panel1bh-header"
-          //style={{margin:0, padding:0}}
+          style={{margin:0, padding:0}}
         >
           
-          <Typography component="h1" variant="h1" className={classes.heading}>{props.name}</Typography>
-          <Typography className={classes.secondaryHeading}>{props.deadline}</Typography>
+          <Typography component="h1" variant="h1" className={classes.heading}>{props.title}</Typography>
+          <Typography className={classes.secondaryHeading}>{props.deadline.split("T")[0]}</Typography>
         </AccordionSummary>
         <AccordionDetails >
           <Typography className={classes.secondaryHeading}>

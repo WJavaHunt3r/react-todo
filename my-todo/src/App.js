@@ -33,7 +33,7 @@ function App(props) {
          <NewEdit/>
        </Route>
        <Route path="/">
-         <Home tasks={props.tasks}/>
+         <Home />
        </Route>
      </Switch>
      {/* <NewEdit addTask={addTask}/>

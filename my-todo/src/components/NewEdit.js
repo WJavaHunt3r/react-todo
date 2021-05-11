@@ -1,8 +1,8 @@
 import 'date-fns';
-import React , {useState} from "react";
+import React , {useEffect, useState} from "react";
 import { Button, Grid, Paper, TextField, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-
+import { useLocation, useHistory } from 'react-router-dom'
 const useStyles = makeStyles((theme) => ({
     grid: {
      
@@ -35,6 +35,11 @@ const useStyles = makeStyles((theme) => ({
 
 function NewEdit(props){
     const classes = useStyles();
+    const loc = useLocation();
+    const history = useHistory();
+    const [error, setError] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [task, setTask] = useState("");
     const [newDate, setNewDate] = useState('');
     function handleNewDate(e) {
       setNewDate(e.target.value);
@@ -48,6 +53,36 @@ function NewEdit(props){
     const [description, setDescription] = useState('');
     function handleDescriptionChange(e){
         setDescription(e.target.value);
+    }
+      
+      useEffect(()=>{  
+        if(loc.pathname !== "/new"){
+          const pathname = loc.pathname.split("/")
+          const id = pathname[pathname.length-1];
+        
+        fetch("https://localhost:5001/api/todoitems/"+id).then(res => res.json())
+        .then(
+          (result) => {
+            setIsLoaded(true);
+            setTask(result);
+            setName(result.title);
+            const fullDate = result.deadLine.split("T");
+            setNewDate(fullDate[0]);
+            setDescription(result.description);
+          },         
+          (error) => {
+            setIsLoaded(true);
+            setError(error);
+          }
+        )
+        }
+    }, [loc])
+    
+    if(error){
+      return <div>An Error occourd:{error.message}</div>
+    }
+    if(!isLoaded){
+      //return <div>Still loading...</div>
     }
     return (
         <Paper className={classes.root}>
@@ -80,6 +115,7 @@ function NewEdit(props){
               />
               
               <TextField
+                required
                 id="date"
                 label="Deadline"
                 type="date"
@@ -91,22 +127,69 @@ function NewEdit(props){
                   shrink: true,
                 }}
             />
-                  <Button type="submit" color="primary" size="large" variant="contained" onClick={handleSubmit} className={classes.button}>
-              Add
-            </Button>
+                
+                  <Button type="submit" color="primary" size="large" variant="contained" onClick={handleSubmit}  className={classes.button}>
+                    Add
+                  </Button>
+                
           </Grid>
         </Paper>
     );
       
       function handleSubmit(e) {
         e.preventDefault();
-          if (name && description) {           
-            props.addTask(name, description, newDate);
+          if (name && description && newDate) {
+            const todoItem = {
+              "id":0,
+              "title": name,
+              "description": description,
+              "deadLine": newDate,
+              "priority":0,
+              "boardId":0
+            };
+            //console.log(todoItem);
+            (loc.pathname !== "/new") ? editTask(todoItem) : addTask(todoItem);
+
+            
             setName("");
             setDescription("");
             setNewDate("");
-          }
-        
+            history.push("/");
+          }       
+      }
+      function addTask(todoItem) {
+        fetch('https://localhost:5001/api/todoitems', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify( todoItem )
+      })
+        .then(data => data.json())
+        .then(
+          (result) => {
+            //console.log(result);
+            
+          })
+          
+      }
+
+      function  editTask(todoItem) {
+        todoItem.id=task.id;
+        todoItem.boardId=task.boardId;
+        fetch('https://localhost:5001/api/todoitems/' + task.id, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(todoItem )
+      })
+        .then(data => data.json())
+        .then(
+          (result) => {
+            //console.log(result);
+          })
+      
       }
 }
 

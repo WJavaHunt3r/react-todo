@@ -4,14 +4,7 @@ import { Button, Grid } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import AddIcon from '@material-ui/icons/Add';
 import { Link} from "react-router-dom";
-
-const FILTER_MAP = {
-    Todo: task => task.state = 'Todo',
-    Active: task => task.state = 'Active',
-    Completed: task => task.state = 'Completed',
-    Delayed: task => task.state = 'Delayed'
-  };
-  const FILTER_NAMES = Object.keys(FILTER_MAP);
+import { DragDropContext,Droppable ,Draggable  } from 'react-beautiful-dnd';
 
 function Home(props){
     const [error, setError] = useState(null);
@@ -21,14 +14,27 @@ function Home(props){
         const newTask = { id: "todo-" + nanoid(), name: name, desc: desc, state: 'Todo', deadline: deadline};
         setTasks([...tasks, newTask]);
       }*/
-    const filterList = FILTER_NAMES.map( name => (      
-        <Board
-          key={name} 
-          name={name}
-          tasks={props.tasks}
-          //setTasks={setTasks}
-        ></Board> 
-    ));
+    const filterList = boards.map( item => {
+        return(  
+        
+            <Droppable key={item.id} droppableId={item.id.toString()}>
+                {(provided) => ( 
+                <Grid container justify="center" spacing={4}  className={item.id.toString()}{...provided.droppableProps} ref={provided.innerRef}>
+                    <Board
+                        
+                        id={item.id}
+                        name={item.name}
+                        tasks={props.tasks}
+                        //setTasks={setTasks}
+                    ></Board>
+                    {provided.placeholder}
+                </Grid>
+                )}
+            </Droppable>
+        
+        )}
+        
+    );
 
     useEffect(()=>{
         fetch("https://localhost:5001/api/boards").then(res => res.json())
@@ -36,7 +42,7 @@ function Home(props){
           (result) => {
             setIsLoaded(true);
             setboards(result);
-            console.log(result);
+            //console.log(result);
           },         
           (error) => {
             setIsLoaded(true);
@@ -44,8 +50,15 @@ function Home(props){
           }
         )
     }, [])
+    if(error){
+        return <div>An Error occourd:{error.message}</div>
+      }
+      if(!isLoaded){
+        //return <div>Still loading...</div>
+      }
 
     return(
+        
         <React.Fragment>
         <Grid container spacing={5}>
             <Grid item xs={12}>
@@ -55,15 +68,43 @@ function Home(props){
                 </Button>
             </Link>
             </Grid>
-            <Grid item xs={12}>
-                <Grid container justify="center" spacing={4} >
+            
+            <Grid item xs={12} >
+            
+            <Grid container justify="center" spacing={4}>
+            <DragDropContext>
+            {boards.map( item => {
+                return(  
                 
-                {filterList}
-                </Grid>
+                    <Droppable key={item.id} droppableId={item.id.toString()}>
+                        {(provided) => ( 
+                        <div className={item.id.toString()}{...provided.droppableProps} ref={provided.innerRef}>
+                            <Board
+                                
+                                id={item.id}
+                                name={item.name}
+                                tasks={props.tasks}
+                                //setTasks={setTasks}
+                            ></Board>
+                            {provided.placeholder}
+                        </div>
+                        )}
+                    </Droppable>
+                
+                )}
+                
+            )}
+            </DragDropContext>
             </Grid>
+            
+            </Grid>
+            
+            
+            
         </Grid>
         
        </React.Fragment>
+       
     );
 }
 

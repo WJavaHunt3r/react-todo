@@ -1,7 +1,9 @@
 import { Grid, Paper} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { useEffect, useState } from 'react';
 import Todo from "./Todo";
-
+import { DragDropContext,Droppable ,Draggable  } from 'react-beautiful-dnd';
+//import {useHistory} from "react-router-dom"
 const useStyles = makeStyles((theme) => ({
     button:{
       margin: theme.spacing(2),
@@ -16,85 +18,119 @@ const useStyles = makeStyles((theme) => ({
   
 function Board(props){
     const classes = useStyles(); 
+    const [error, setError] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [tasks, setTasks] = useState([]);
+    useEffect(()=>{
+      //console.log(props);
+      getTasks(props);
+  }, [props])
+  if(error){
+    return <div>An Error occourd:{error.message}</div>
+  }
+  if(!isLoaded){
+    //return <div>Still loading...</div>
+  }
     function toggleTaskCompleted(id, state) {
-      const updatedTasks = props.tasks.map(task=>{
+      const updatedTasks = tasks.map(task=>{
         if (id=== task.id) {
           return {...task, state: state}
         }
         return  task;
       })
-      props.setTasks(updatedTasks);
+      setTasks(updatedTasks);
     }
 
   
     function deleteTask(id){
-      const remainingTasks = props.tasks.filter(task=> id !== task.id);
-      props.setTasks(remainingTasks);
-    }
-  
-    function editTask(id, newName, newDesc, deadline){
-      const editedTasks = props.tasks.map(task => {
-        if(id === task.id){
-          return{...task, name: newName, desc: newDesc, deadline: deadline}
-        }
-        return task;
-      });
-      props.setTasks(editedTasks);
+      fetch("https://localhost:5001/api/todoitems/"+id, { method: 'DELETE' })
+        .then(() => getTasks(props));
+      
     }
 
-    const filtered = props.tasks.filter(task => {return task.state === props.name})
+    function getTasks(props){
+      fetch("https://localhost:5001/api/boards/"+props.id).then(res => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true);
+          setTasks(result.todoItems);      
+
+        },         
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      )
+    }
+
+    
 
     function priorityDown(id){
-      const curr = filtered.findIndex(task => id===task.id);
-      const next = props.tasks.findIndex(task=> filtered[curr+1].id === task.id);
-      const propsCurr = props.tasks.findIndex(task => id===task.id);
-      const newOrder = props.tasks.map(task=>{ 
+      const curr = tasks.findIndex(task => id===task.id);
+      const next = tasks.findIndex(task=> tasks[curr+1].id === task.id);
+      const propsCurr = tasks.findIndex(task => id===task.id);
+      const newOrder = tasks.map(task=>{ 
         return task});
       newOrder.splice(next,0, newOrder.splice(propsCurr,1)[0])
       props.setTasks(newOrder);
     }
     
     function priorityUp(id){
-      const curr = filtered.findIndex(task => id===task.id);
-      const prev = props.tasks.findIndex(task=> filtered[curr-1].id === task.id);
-      const propsCurr = props.tasks.findIndex(task => id===task.id);
-      const newOrder = props.tasks.map(task=>{ 
+      const curr = tasks.findIndex(task => id===task.id);
+      const prev = tasks.findIndex(task=> tasks[curr-1].id === task.id);
+      const propsCurr = tasks.findIndex(task => id===task.id);
+      const newOrder = tasks.map(task=>{ 
         return task});
       newOrder.splice(prev,0, newOrder.splice(propsCurr,1)[0])
       props.setTasks(newOrder);
     }
 
     
-    const taskList = filtered.map(task => (
-      <Todo 
-        id={task.id}
-        name = {task.name}
-        state={task.state}
-        desc={task.desc}
-        key={task.id}
-        deadline = {task.deadline}
-        isFirst = {filtered.findIndex(t => task.id === t.id) === 0}
-        isLast = {filtered.findIndex(t=> task.id === t.id) === filtered.length-1}
-        toggleTaskCompleted={toggleTaskCompleted}
-        deleteTask={deleteTask}
-        editTask={editTask}
-        priorityUp={priorityUp}
-        priorityDown={priorityDown}
-        />
+    const taskList = tasks.map((task, index) => (
+      
+      <Draggable key={task.id} draggableId= {task.id.toString()} index={index}>
+        {(provided) => (
+        <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+        <Todo 
+          id={task.id}
+          title = {task.title}
+          state={props.name}
+          desc={task.description}          
+          deadline = {task.deadLine}
+          priority = {task.priority}
+          isFirst = {tasks.findIndex(t => task.id === t.id) === 0}
+          isLast = {tasks.findIndex(t=> task.id === t.id) === tasks.length-1}
+          toggleTaskCompleted={toggleTaskCompleted}
+          deleteTask={deleteTask}
+          priorityUp={priorityUp}
+          priorityDown={priorityDown}
+          />
+        </li>
+        )}
+      </Draggable>
       )
     );
   
-    return(      
-        <Grid item xs={3}
-          className={classes.box} >           
-          <Paper                
-            style={{padding:10, backgroundColor: '#aafafa',}}
-            label={props.name}           
-          >  
-          {props.name}
-          {taskList}
-          </Paper>        
-        </Grid>
+    return(
+      
+        
+          <Grid item xs={3}
+            className={classes.box} 
+            >   
+            
+              <Paper                
+                style={{padding:10, backgroundColor: '#aafafa',}}
+                label={props.name}           
+              >  
+                {props.name}
+                {taskList}
+              </Paper>
+                  
+              
+          </Grid>
+          
+        
+      
     );
     
 }
