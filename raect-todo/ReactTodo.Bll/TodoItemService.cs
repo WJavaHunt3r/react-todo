@@ -187,7 +187,7 @@ namespace ReactTodo.Bll
 
         public void UpdateBoardAfterMove(long id, int priority)
         {
-            var todos = DbContext.TodoItems.Where(t => t.BoardId == id && t.Priority <= priority).ToList();
+            var todos = DbContext.TodoItems.Where(t => t.BoardId == id && t.Priority >= priority).ToList();
             todos.ForEach(t => t.Priority += 1);
 
         }

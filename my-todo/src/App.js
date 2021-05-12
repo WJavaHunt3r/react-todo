@@ -9,20 +9,8 @@ import {
 } from "react-router-dom";
 import Home from './components/Home';
 
-
-
-
-
 function App() {
-   
-  
-    
-    
- 
-  /*const tasksNoun = taskList.length !== 1 ? 'tasks' : 'task';
-  const headingText = `${taskList.length} ${tasksNoun} remaining`;*/
-  
-  
+
   return (
    <Layout>
      <Switch>
@@ -39,7 +27,6 @@ function App() {
       
     </Layout>
   );
-  
 }
 
 export default App;
