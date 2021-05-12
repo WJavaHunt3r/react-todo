@@ -42,7 +42,9 @@ namespace ReactTodo.Data
                 entity.HasKey(ti => ti.Id);
                 entity.Property(ti => ti.Id).ValueGeneratedOnAdd();
                 entity.Property(e => e.Title).HasMaxLength(50);
-
+                entity.HasOne(e => e.Board)
+                    .WithMany(t => t.TodoItems)
+                    .HasForeignKey(e => e.BoardId);
             });
 
             base.OnModelCreating(modelBuilder);
