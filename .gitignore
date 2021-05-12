@@ -18,3 +18,7 @@ raect-todo/.vs/raect-todo/v16/TestStore/0/testlog.manifest
 .vscode
 raect-todo/.vs/raect-todo/v16/.suo
 /raect-todo/ReactTodo.Tests/obj
+/raect-todo/.vs/raect-todo/v16/lut
+/raect-todo/ReactTodo.Tests/bin/Debug/net5.0/cs
+/raect-todo/ReactTodo.Tests/bin/Debug/net5.0/de
+/raect-todo/ReactTodo.Tests/bin/Debug/net5.0
