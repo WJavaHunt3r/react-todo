@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+//using NUnit.Framework;
 using ReactTodo.Api.Controllers;
 using ReactTodo.Bll;
 using ReactTodo.Data;
@@ -19,6 +20,7 @@ namespace ReactTodo.Tests
         .Options;
         private TodoItemsController controller;
 
+        //[OneTimeSetUp]
         public void Setup()
         {
             SeedDb();
