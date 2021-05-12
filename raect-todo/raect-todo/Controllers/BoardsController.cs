@@ -25,8 +25,6 @@ namespace ReactTodo.Api.Controllers
         [HttpGet("{id}")]
         public async Task<BoardDto> GetBoardAsync(long id) => await TodoService.GetBoardAsync(id);
         
-        [HttpPut("{id}")]
-        public async Task<BoardDto> UpdateBoardAsync(long id, BoardDto boardDto) => await TodoService.UpdateBoardAsync(id, boardDto);
     }
 
 }

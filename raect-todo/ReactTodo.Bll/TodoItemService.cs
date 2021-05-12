@@ -22,7 +22,6 @@ namespace ReactTodo.Bll
 
         Task<IReadOnlyCollection<BoardDto>> GetBoardsAsync();
         Task<BoardDto> GetBoardAsync(long id);
-        Task<BoardDto> UpdateBoardAsync(long id, BoardDto todoItemDto);
     }
     public record TodoItemService(TodoContext DbContext) : ITodoItemService
     {
@@ -80,18 +79,13 @@ namespace ReactTodo.Bll
             {
                 return 0;
             }
-            var oldId = todoItem.Id;
+
             DbContext.TodoItems.Remove(todoItem);
             UpdateBoardAfterDeleteAsync(todoItem.BoardId, todoItem.Priority);
             await DbContext.SaveChangesAsync();
             
             return 1;
         }
-
-        private static BoardDto BoardToDTO(Board board) =>
-            new BoardDto(board.Id, board.Name, ItemsToDTO( board.TodoItems));
-
-
 
         private static TodoItemDto ItemToDTO(TodoItem todoItem) =>
             new TodoItemDto
@@ -141,14 +135,12 @@ namespace ReactTodo.Bll
             {
                 PriorityDown(todoItemDto.BoardId, todoItemDto.Priority, oldPriority);
             }
+
             todoItem.Title = todoItemDto.Title;
             todoItem.DeadLine = todoItemDto.DeadLine;
             todoItem.Description = todoItemDto.Description;
             todoItem.Priority = todoItemDto.Priority;
             todoItem.BoardId = todoItemDto.BoardId;
-            
-
-
 
             try
             {
@@ -162,32 +154,28 @@ namespace ReactTodo.Bll
             return ItemToDTO(todoItem);
         }
 
-        private void PriorityUp(long id, long priority, long oldPriority)
+        private async void PriorityUp(long id, long priority, long oldPriority)
         {
-            var todos = DbContext.TodoItems.Where(t => t.BoardId == id && t.Priority >= priority && t.Priority < oldPriority).ToList();
+            var todos = await DbContext.TodoItems.Where(t => t.BoardId == id && t.Priority >= priority && t.Priority < oldPriority).ToListAsync();
             todos.ForEach(t => t.Priority += 1);
         }
 
-        private void PriorityDown(long id, long priority, long oldPriority)
+        private async void PriorityDown(long id, long priority, long oldPriority)
         {
-            var todos = DbContext.TodoItems.Where(t => t.BoardId == id && t.Priority <= priority && t.Priority > oldPriority).ToList();
+            var todos = await DbContext.TodoItems.Where(t => t.BoardId == id && t.Priority <= priority && t.Priority > oldPriority).ToListAsync();
             todos.ForEach(t => t.Priority -= 1);
         }
-        public async Task<BoardDto> UpdateBoardAsync(long id, BoardDto boardDto)
-        {
-            throw new NotImplementedException();
-        }
 
-        public  void UpdateBoardAfterDeleteAsync(long id, int priority)
+        public async void UpdateBoardAfterDeleteAsync(long id, int priority)
         {
-            var todos =  DbContext.TodoItems.Where(t => t.BoardId == id && t.Priority > priority).ToList();
+            var todos = await DbContext.TodoItems.Where(t => t.BoardId == id && t.Priority > priority).ToListAsync();
             todos.ForEach(t => t.Priority -= 1);
                
         }
 
-        public void UpdateBoardAfterMove(long id, int priority)
+        public async void UpdateBoardAfterMove(long id, int priority)
         {
-            var todos = DbContext.TodoItems.Where(t => t.BoardId == id && t.Priority >= priority).ToList();
+            var todos = await DbContext.TodoItems.Where(t => t.BoardId == id && t.Priority >= priority).ToListAsync();
             todos.ForEach(t => t.Priority += 1);
 
         }
