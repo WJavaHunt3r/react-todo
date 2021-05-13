@@ -1,6 +1,12 @@
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
 import React from "react";
 import PropTypes from 'prop-types'
+
+/**
+ * The basic layout of the app
+ * @param {*} props 
+ * @returns 
+ */
 function Layout(props) {
     return (
         <React.Fragment
