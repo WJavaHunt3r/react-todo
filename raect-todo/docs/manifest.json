@@ -1,0 +1,356 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/Users/wagne/OneDrive/Dokumentumok/Temalabor/react-todo/raect-todo/docfx_project",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReactTodo.Api.Controllers.BoardsController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReactTodo.Api.Controllers.BoardsController.html",
+          "hash": "3kT0LZAuRCQg4IGUeTjhDqVOINyRGKiycx+MElAnIso="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReactTodo.Api.Controllers.TodoItemsController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReactTodo.Api.Controllers.TodoItemsController.html",
+          "hash": "SLOS2qdR1ElcX8kYFz64d0SDrIqb1DWMSXWwcvnUenQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReactTodo.Api.Controllers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReactTodo.Api.Controllers.html",
+          "hash": "ZmOpHzma6zyyHC8WRkvIfkAUOnwJLG268jt1XMrb7xg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReactTodo.Bll.DependencyInjectionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReactTodo.Bll.DependencyInjectionExtensions.html",
+          "hash": "RyF3x3ccLG5KZcdH0EKxY0WlChC/nm1A3fXqtKVD6mU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReactTodo.Bll.IBoardService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReactTodo.Bll.IBoardService.html",
+          "hash": "DW1rMcRKEwvldyzUH4xuHIjX2Bd8zDnV+AjYPbpfsXs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReactTodo.Bll.ITodoItemService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReactTodo.Bll.ITodoItemService.html",
+          "hash": "ktUPt9uLc618dBJbLrLxUxRONHP5sJaLZzwH8FWvtaM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReactTodo.Bll.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReactTodo.Bll.html",
+          "hash": "UA3MYJvVUfPA1MMaeO2afWpXdklXvoAyKtFu5p0EgrE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReactTodo.Data.Board.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReactTodo.Data.Board.html",
+          "hash": "IEUmfRjKgiEV7Ircnku+vMx7FjzMswZXu5kZdYZcK44="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReactTodo.Data.Migrations.init.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReactTodo.Data.Migrations.init.html",
+          "hash": "MqoKGHiQR1dIOK0IFddsleswEpGahv5Q53mxp9S4FMw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReactTodo.Data.Migrations.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReactTodo.Data.Migrations.html",
+          "hash": "vxe0egssz1idL7AXGT0PKErocuntIcjrY1XpcwykRmc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReactTodo.Data.TodoContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReactTodo.Data.TodoContext.html",
+          "hash": "/kfxFOSd17UEIRfoxeBYZw8nAjpF5r2+rkfHA+nKpiU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReactTodo.Data.TodoItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReactTodo.Data.TodoItem.html",
+          "hash": "s4SsECboRRYcRO8WwNdDYuH0WPoPaZl1aDANEYb9VgA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReactTodo.Data.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReactTodo.Data.html",
+          "hash": "sz+25JR9hQ1ZlwL0J5wzjYC6cwU7yVYoxyoI+zSAwLI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReactTodo.Tests.TestWebFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReactTodo.Tests.TestWebFactory.html",
+          "hash": "riJlah0bJsGtKGZbig9oYpFVkP7tSVq3yneL46W7W+4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReactTodo.Tests.TodoItemTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReactTodo.Tests.TodoItemTests.html",
+          "hash": "wYuJA8WzbC/0nql32bfBo0E7eNnCRPko84FnD9NgXAQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReactTodo.Tests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReactTodo.Tests.html",
+          "hash": "TKUQInl3YCY5UUp42Jd6Gw4x3noyuE6tmAZ4ix97A1E="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "EdyPVtJaE+ZgcQH/iYrMImGhrEunNjsClBeZgTNaZQw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/raect_todo.Program.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/raect_todo.Program.html",
+          "hash": "1N8vLqEoIyuGyKRIb2TpEDK8wXtTppkVH5beFV5GRQg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/raect_todo.Startup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/raect_todo.Startup.html",
+          "hash": "1bkcXFsGhBtPnZGzUH+IvCBw50A1UQGeiVr6DgqsyjI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/raect_todo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/raect_todo.html",
+          "hash": "4BXbqHR7C1IXZsYziIVqWEL0yrX3VZPAvbthbIFzbIY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "DyixwGMwQxhOtYooF4+K+DL8JRhOVCfgOTeCxdhMM1k="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "8I1GJzVm2+nMTUyablOB8PtMJqH+UnvAgVG49EiW4a0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "BlPxk5mtl2kgfcZUgkEguqiSAR/EUyUTT4EdebwkQvs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "c+aKAFl7xG/PrwhBP7DunM9VGyO1SEoQ8AuVoBIgY+c="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "WSuRrYiGwKKMbtdG9z8W9fXmLoCyTnGg9AxbPKLXm2Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Disable incremental build by force rebuild option.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "ForceRebuild"
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 3,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 19,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: it's disabled.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
