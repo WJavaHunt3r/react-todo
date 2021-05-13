@@ -11,7 +11,8 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(2),
   },
   box: {
-    margin: -2,
+    margin: 0,
+    padding: "10px"
     //backgroundColor: '#000000'
   },
 }));
@@ -36,7 +37,7 @@ function Board(props) {
   return (
     <Grid item xs={3} className={classes.box}>
       <Paper
-        style={{ padding: 5, backgroundColor: "#484848", minHeight: 800 }}
+        style={{ padding: 10, backgroundColor: "#484848", minHeight: 800 }}
         label={props.name}
       >
         <div>

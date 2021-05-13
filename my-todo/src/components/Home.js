@@ -101,30 +101,25 @@ function Home() {
 
   return (
 
-    <React.Fragment>
-      <Grid container spacing={1}>
-        <Grid item xs={12} >
+    <React.Fragment >
+      <Grid container justify="center" spacing={5} style={{ margin: 0, maxWidth: "100%" }}>
+        <DragDropContext onDragEnd={handleOnDragEnd}>
+          {boards.map(item => {
+            return (
 
-        </Grid>
-        <Grid container justify="center" spacing={4}  >
-          <DragDropContext onDragEnd={handleOnDragEnd}>
-            {boards.map(item => {
-              return (
+              <Board
+                key={item.id}
+                id={item.id}
+                name={item.name}
+                tasks={item.todoItems}
+                getBoards={getBoards}
+              />
 
-                <Board
-                  key={item.id}
-                  id={item.id}
-                  name={item.name}
-                  tasks={item.todoItems}
-                  getBoards={getBoards}
-                />
+            )
+          }
 
-              )
-            }
-
-            )}
-          </DragDropContext>
-        </Grid>
+          )}
+        </DragDropContext>
       </Grid>
 
     </React.Fragment>

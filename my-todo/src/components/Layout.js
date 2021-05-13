@@ -11,8 +11,8 @@ function Layout(props) {
     return (
         <React.Fragment
         >
-            <AppBar elevation={0} color="primary" position="static" style={{ height: 64 }}>
-                <Toolbar style={{ height: 64 }}>
+            <AppBar display="flex" elevation={0} color="primary" position="static" style={{ height: 64 }}>
+                <Toolbar style={{ margin: "auto", height: 64 }}>
                     <Typography variant="h2" component="h2" color="inherit">TODO APP</Typography>
                 </Toolbar>
             </AppBar>
