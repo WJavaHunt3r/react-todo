@@ -9,22 +9,27 @@ import {
 } from "react-router-dom";
 import Home from './components/Home';
 
+/**
+ * Initializes the layout
+ * Describes the Routing
+ * @returns 
+ */
 function App() {
 
   return (
-   <Layout>
-     <Switch>
-       <Route path="/edit/:id">
-          <NewEdit/>
-       </Route>
-       <Route path="/new">
-         <NewEdit/>
-       </Route>
-       <Route path="/">
-         <Home />
-       </Route>
-     </Switch>
-      
+    <Layout>
+      <Switch>
+        <Route path="/edit/:id">
+          <NewEdit />
+        </Route>
+        <Route path="/new">
+          <NewEdit />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+
     </Layout>
   );
 }

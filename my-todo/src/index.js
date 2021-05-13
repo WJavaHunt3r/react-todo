@@ -9,9 +9,12 @@ import {
   BrowserRouter as Router
 } from "react-router-dom"
 
+/**
+ * Start of the code
+ */
 ReactDOM.render(
   <Router>
-    <App  />
+    <App />
   </Router>,
   document.getElementById('root')
 );

@@ -43,6 +43,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+/**
+ * represents a todo on a board
+ * @param {*} props = the params of a todo 
+ * @returns a rendered todo
+ */
 function Todo(props) {
   const classes = useStyles();
 
