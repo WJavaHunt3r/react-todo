@@ -22,7 +22,6 @@ namespace ReactTodo.Bll
 
         Task<IReadOnlyCollection<BoardDto>> GetBoardsAsync();
         Task<BoardDto> GetBoardAsync(long id);
-        Task<BoardDto> UpdateBoardAsync(long id, BoardDto todoItemDto);
     }
     public record TodoItemService(TodoContext DbContext) : ITodoItemService
     {
@@ -172,10 +171,6 @@ namespace ReactTodo.Bll
         {
             var todos = DbContext.TodoItems.Where(t => t.BoardId == id && t.Priority <= priority && t.Priority > oldPriority).ToList();
             todos.ForEach(t => t.Priority -= 1);
-        }
-        public async Task<BoardDto> UpdateBoardAsync(long id, BoardDto boardDto)
-        {
-            throw new NotImplementedException();
         }
 
         public  void UpdateBoardAfterDeleteAsync(long id, int priority)

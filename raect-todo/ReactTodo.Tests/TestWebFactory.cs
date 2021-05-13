@@ -16,7 +16,7 @@ namespace ReactTodo.Tests
     /// <summary>
     /// Provies a WebApi web server for testing.
     /// </summary>
-    class TestWebFactory : WebApplicationFactory<Startup>
+    public class TestWebFactory : WebApplicationFactory<Startup>
     {
         private readonly SqliteConnection sqliteConnection;
 
