@@ -43,7 +43,7 @@ namespace ReactTodo.Tests
                 
                 
                 var client = testScope.CreateClient();
-                var response = await client.GetAsync("api/todoitems");
+                var response = await client.GetAsync("todoitems");
 
                 response.EnsureSuccessStatusCode();
                 var actual = await response.Content.ReadFromJsonAsync<TodoItem[]>();
@@ -65,7 +65,7 @@ namespace ReactTodo.Tests
                 var client = testScope.CreateClient();
                 foreach(var expected in testScope.GetDbTableContent<TodoItem>())
                 {
-                    var response = await client.GetAsync($"api/todoitems/{expected.Id}");
+                    var response = await client.GetAsync($"todoitems/{expected.Id}");
                     response.EnsureSuccessStatusCode();
                     var actual = await response.Content.ReadFromJsonAsync<TodoItem>();
                     Assert.IsNotNull(actual);
@@ -85,10 +85,11 @@ namespace ReactTodo.Tests
             using (var testScope = TestWebFactory.Create())
             {
                 testScope.AddSeedEntities(boards);
+                testScope.AddSeedEntities(testTodos);
                 var toInsert = new TodoItem {Id=4, Title = "Todo4", Description = "The fourth todo", DeadLine = new DateTime(2021, 05, 26), Priority = 2, BoardId = 1 };
 
                 var client = testScope.CreateClient();
-                var response = await client.PostAsJsonAsync("api/todoitems", toInsert);
+                var response = await client.PostAsJsonAsync("todoitems", toInsert);
 
                 response.EnsureSuccessStatusCode();
                 var postResponse = await response.Content.ReadFromJsonAsync<TodoItem>();
@@ -105,9 +106,10 @@ namespace ReactTodo.Tests
             using (var testScope = TestWebFactory.Create())
             {
                 testScope.AddSeedEntities(boards);
+                testScope.AddSeedEntities(testTodos);
                 var client = testScope.CreateClient();
 
-                var response = await client.DeleteAsync($"api/todoitems/{3}");
+                var response = await client.DeleteAsync($"todoitems/{3}");
 
                 response.EnsureSuccessStatusCode();
             }
@@ -126,7 +128,7 @@ namespace ReactTodo.Tests
                 recordToUpdate.Title = "A new title";
                 
 
-                var response = await client.PutAsJsonAsync($"api/todoitems/{recordToUpdate.Id}", recordToUpdate);
+                var response = await client.PutAsJsonAsync($"todoitems/{recordToUpdate.Id}", recordToUpdate);
 
                 response.EnsureSuccessStatusCode();
                 var putResponse = await response.Content.ReadFromJsonAsync<TodoItem>();

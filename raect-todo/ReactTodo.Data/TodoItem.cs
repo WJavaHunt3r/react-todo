@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace ReactTodo.Data
 {
+    /// <summary>
+    /// Represents a TodoItem in the database
+    /// </summary>
     public class TodoItem
     {
         public long Id { get; set; }
@@ -19,11 +22,22 @@ namespace ReactTodo.Data
 
         public Board Board { get; set; }
 
+        /// <summary>
+        /// Used for tests
+        /// overrides the equals method, than calls it with a TodoItem instance
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public override bool Equals(object obj)
         {
             return Equals(obj as TodoItem);
         }
 
+        /// <summary>
+        /// Checks if the this and the given TodoItem are the same
+        /// </summary>
+        /// <param name="other">The TodoItem to compare with</param>
+        /// <returns>true if they are the same instance, false otherwise</returns>
         public bool Equals(TodoItem other)
         {
             return other != null &&
