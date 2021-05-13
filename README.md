@@ -11,10 +11,10 @@ A labor elvégzéséhez szükséges eszközök:
 - Visual Studio Code
 
 ## Getting started
-Download and unzip the folder to your desired fodler. The frontend is in the my-todo folder. Read the `Readme` there to install the React app.
+Download and unzip the folder to your desired folder. The frontend is in the my-todo folder. Read the `Readme` there to install the React app.
 
 ## Create database
-In order to store the todos permanently, we will need a database. Now go ahaed ang create a knew one in you desired server manager. If you don't have one:
+In order to store the todos permanently, we will need a database. Now go ahead ang create a knew one in you desired server manager. If you don't have one:
 1. Install Microsoft SQL Server and SQL Server Management Studi
 2. Open SQL Server Management and connect to the database:
       
@@ -29,6 +29,6 @@ Here you can find the connecting string. If you do not use MSSQL or you changed 
 
 ## Start the backend
 After some seconds a new webside should open on : [https://localhost:5001/swagger/index.html](https://localhost:5001/swagger/index.html)
-Here you can alredy test the backend
+Here you can already test the backend
 
 ## You are ready to go
