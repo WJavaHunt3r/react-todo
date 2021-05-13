@@ -28,7 +28,7 @@ In the `Soulution Explorer` click the ReactTodo.Api and in the dropdown find the
 Here you can find the connecting string. If you do not use MSSQL or you changed the name of the database, you can configure it here.
 
 ## Start the backend
-After some seconds a new webside should open on : [https://localhost:5001/swagger/index.html](https://localhost:5001/swagger/index.html)
+After some seconds a new website should open on : [https://localhost:5001/swagger/index.html](https://localhost:5001/swagger/index.html)
 Here you can already test the backend
 
 ## You are ready to go
