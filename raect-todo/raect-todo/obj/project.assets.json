@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     "net5.0": {
+      "docfx/2.57.2": {
+        "type": "package",
+        "compile": {
+          "lib/net472/docfx.exe": {}
+        },
+        "runtime": {
+          "lib/net472/docfx.exe": {}
+        }
+      },
       "Humanizer.Core/2.8.26": {
         "type": "package",
         "compile": {
@@ -2262,7 +2271,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "ReactTodo.Data": "1.0.0"
+          "ReactTodo.Data": "1.0.0",
+          "docfx": "2.57.2"
         },
         "compile": {
           "bin/placeholder/ReactTodo.Bll.dll": {}
@@ -2276,7 +2286,8 @@
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "5.0.5",
-          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.5"
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.5",
+          "docfx": "2.57.2"
         },
         "compile": {
           "bin/placeholder/ReactTodo.Data.dll": {}
@@ -2288,6 +2299,18 @@
     }
   },
   "libraries": {
+    "docfx/2.57.2": {
+      "sha512": "R1hN0l0CYfC4jrrJMajZWCA5LdNv+gfvqQzxQloANEmT9DaI85ZksQe/ZvIduceZcVfaH5JejP1+N92Xn5ECAw==",
+      "type": "package",
+      "path": "docfx/2.57.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "docfx.2.57.2.nupkg.sha512",
+        "docfx.nuspec",
+        "lib/net472/docfx.exe"
+      ]
+    },
     "Humanizer.Core/2.8.26": {
       "sha512": "OiKusGL20vby4uDEswj2IgkdchC1yQ6rwbIkZDVBPIR6al2b7n3pC91elBul9q33KaBgRKhbZH3+2Ur4fnWx2A==",
       "type": "package",
@@ -7715,7 +7738,8 @@
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.5",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 5.0.2",
       "ReactTodo.Bll >= 1.0.0",
-      "Swashbuckle.AspNetCore >= 5.6.3"
+      "Swashbuckle.AspNetCore >= 5.6.3",
+      "docfx >= 2.57.2"
     ]
   },
   "packageFolders": {
@@ -7796,6 +7820,10 @@
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[5.6.3, )"
+          },
+          "docfx": {
+            "target": "Package",
+            "version": "[2.57.2, )"
           }
         },
         "imports": [
@@ -7819,5 +7847,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'docfx 2.57.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "docfx",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }

@@ -16,6 +16,7 @@ namespace ReactTodo.Data
 
         public DbSet<Board> Boards { get; set; }
 
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -31,21 +32,29 @@ namespace ReactTodo.Data
                 entity.HasKey(b => b.Id);
                 entity.Property(b => b.Id).ValueGeneratedOnAdd();
                 entity.Property(e => e.Name).HasMaxLength(20);
+                
+                entity.HasData(
+                    new Board { Id = 1, Name = "Todo" },
+                    new Board { Id = 2, Name = "Active" },
+                    new Board { Id = 3, Name = "Blocked" },
+                    new Board { Id = 4, Name = "Completed" });
                 entity.HasMany<TodoItem>(b => b.TodoItems)
-                        .WithOne(i => i.Board)
-                        .HasForeignKey(i => i.BoardId)
-                        .HasPrincipalKey(b => b.Id);
+                            .WithOne(i => i.Board)
+                            .HasForeignKey(i => i.BoardId)
+                            .HasPrincipalKey(b => b.Id);
             });
+       
 
             modelBuilder.Entity<TodoItem>(entity =>
             {
                 entity.HasKey(ti => ti.Id);
                 entity.Property(ti => ti.Id).ValueGeneratedOnAdd();
                 entity.Property(e => e.Title).HasMaxLength(50);
-                entity.HasOne(e => e.Board)
-                    .WithMany(t => t.TodoItems)
-                    .HasForeignKey(e => e.BoardId);
+                
+
+
             });
+        
 
             base.OnModelCreating(modelBuilder);
         }

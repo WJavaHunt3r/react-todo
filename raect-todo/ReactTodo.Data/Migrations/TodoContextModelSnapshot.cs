@@ -27,11 +27,34 @@ namespace ReactTodo.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Boards");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            Name = "Todo"
+                        },
+                        new
+                        {
+                            Id = 2L,
+                            Name = "Active"
+                        },
+                        new
+                        {
+                            Id = 3L,
+                            Name = "Blocked"
+                        },
+                        new
+                        {
+                            Id = 4L,
+                            Name = "Completed"
+                        });
                 });
 
             modelBuilder.Entity("ReactTodo.Data.TodoItem", b =>
@@ -54,27 +77,68 @@ namespace ReactTodo.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("BoardId");
 
                     b.ToTable("TodoItems");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            BoardId = 1L,
+                            DeadLine = new DateTime(2021, 4, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "My fist todo",
+                            Priority = 1,
+                            Title = "Todo #1"
+                        },
+                        new
+                        {
+                            Id = 2L,
+                            BoardId = 1L,
+                            DeadLine = new DateTime(2021, 4, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "My second todo",
+                            Priority = 2,
+                            Title = "Todo #2"
+                        },
+                        new
+                        {
+                            Id = 3L,
+                            BoardId = 1L,
+                            DeadLine = new DateTime(2021, 4, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "My third todo",
+                            Priority = 3,
+                            Title = "Todo #3"
+                        },
+                        new
+                        {
+                            Id = 4L,
+                            BoardId = 1L,
+                            DeadLine = new DateTime(2021, 4, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "My fourth todo",
+                            Priority = 4,
+                            Title = "Todo #4"
+                        });
                 });
 
             modelBuilder.Entity("ReactTodo.Data.TodoItem", b =>
                 {
-                    b.HasOne("ReactTodo.Data.Board", null)
-                        .WithMany("Todos")
+                    b.HasOne("ReactTodo.Data.Board", "Board")
+                        .WithMany("TodoItems")
                         .HasForeignKey("BoardId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Board");
                 });
 
             modelBuilder.Entity("ReactTodo.Data.Board", b =>
                 {
-                    b.Navigation("Todos");
+                    b.Navigation("TodoItems");
                 });
 #pragma warning restore 612, 618
         }

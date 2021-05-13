@@ -58,7 +58,7 @@ function Todo(props) {
         style={{ margin: 0, padding: 0 }}
       >
 
-        <Typography flexGrow={1} component="h1" variant="h1" className={classes.heading}>{props.title}</Typography>
+        <Typography component="h1" variant="h1" className={classes.heading}>{props.title}</Typography>
         <Typography className={classes.secondaryHeading}>{props.deadline.split("T")[0]}</Typography>
 
       </AccordionSummary>
