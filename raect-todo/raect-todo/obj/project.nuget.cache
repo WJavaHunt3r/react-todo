@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "k2u1P1EWT55nNiOWXaNcCmnCkVJzeAP1MuIwBy9AiM1fPJf2C9/TcBmE3K/J6JjU1G6jVHpHDM0Oq1vG8RAtDw==",
+  "dgSpecHash": "qd/F1X3XZruyrV7ma5nc6W+H9u31mODrMkDnRtUJ0FecPv66nK5EKwjSsod4ElhEmvmt7BzKFTUwazQf5ZHoRw==",
   "success": true,
   "projectFilePath": "C:\\Users\\wagne\\OneDrive\\Dokumentumok\\Temalabor\\react-todo\\raect-todo\\raect-todo\\ReactTodo.Api.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\wagne\\.nuget\\packages\\docfx\\2.57.2\\docfx.2.57.2.nupkg.sha512",
     "C:\\Users\\wagne\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\wagne\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\wagne\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
@@ -145,5 +146,16 @@
     "C:\\Users\\wagne\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\wagne\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'docfx 2.57.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "docfx",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }

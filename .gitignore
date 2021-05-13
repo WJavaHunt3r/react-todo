@@ -25,3 +25,6 @@ raect-todo/.vs/raect-todo/v16/.suo
 /raect-todo/ReactTodo.Tests/obj
 /raect-todo/RectTodo.Test/obj
 /raect-todo/.vs/raect-todo/v16/TestStore/OutputMessages
+/raect-todo/docfx_project/bin/Debug/net5.0
+/raect-todo/docfx_project/obj
+/raect-todo/docfx_project/docfx_project.csproj

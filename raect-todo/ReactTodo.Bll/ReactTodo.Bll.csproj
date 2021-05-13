@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="docfx" Version="2.57.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ReactTodo.Data\ReactTodo.Data.csproj" />
   </ItemGroup>
 

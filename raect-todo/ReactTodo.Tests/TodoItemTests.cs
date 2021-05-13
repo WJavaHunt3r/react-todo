@@ -14,10 +14,10 @@ namespace ReactTodo.Tests
     {
         private static readonly TodoItem[] testTodos = new[]
         {
-                   new TodoItem { Id = 1, BoardId = 1, Title = "Todo #1", Description = "My fist todo", DeadLine = new DateTime(2021, 04, 24), Priority = 1 },
-                   new TodoItem { Id = 2, BoardId = 1, Title = "Todo #2", Description = "My second todo", DeadLine = new DateTime(2021, 04, 25), Priority = 2 },
-                   new TodoItem { Id = 3, BoardId = 1, Title = "Todo #3", Description = "My third todo", DeadLine = new DateTime(2021, 04, 26), Priority = 3 },
-                   new TodoItem { Id = 4, BoardId = 1, Title = "Todo #4", Description = "My fourth todo", DeadLine = new DateTime(2021, 04, 27), Priority = 4 }
+                   new TodoItem { Id = 1, BoardId = 1, Title = "Todo #1", Description = "My fist todo", DeadLine = DateTime.Today, Priority = 1 },
+                   new TodoItem { Id = 2, BoardId = 1, Title = "Todo #2", Description = "My second todo", DeadLine = DateTime.Today, Priority = 2 },
+                   new TodoItem { Id = 3, BoardId = 1, Title = "Todo #3", Description = "My third todo", DeadLine = DateTime.Today, Priority = 3 },
+                   new TodoItem { Id = 4, BoardId = 1, Title = "Todo #4", Description = "My fourth todo", DeadLine = DateTime.Today, Priority = 4 }
         };
 
         [TestMethod]
