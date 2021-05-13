@@ -13,17 +13,17 @@ namespace ReactTodo.Api.Controllers
     [ApiController]
     public class BoardsController : ControllerBase
     {
-        private ITodoItemService TodoService { get; }
-        public BoardsController(ITodoItemService todoService)
+        private IBoardService BoardService { get; }
+        public BoardsController(IBoardService boardService)
         {
-            TodoService = todoService;
+            BoardService = boardService;
         }
 
         [HttpGet]
-        public async Task<IReadOnlyCollection<BoardDto>> GetBoardsAsync() => await TodoService.GetBoardsAsync();
+        public async Task<IReadOnlyCollection<BoardDto>> GetBoardsAsync() => await BoardService.GetBoardsAsync();
 
         [HttpGet("{id}")]
-        public async Task<BoardDto> GetBoardAsync(long id) => await TodoService.GetBoardAsync(id);
+        public async Task<BoardDto> GetBoardAsync(long id) => await BoardService.GetBoardAsync(id);
     }
 
 }

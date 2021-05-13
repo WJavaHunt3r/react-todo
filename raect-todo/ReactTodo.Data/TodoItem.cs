@@ -5,6 +5,10 @@ using System.Threading.Tasks;
 
 namespace ReactTodo.Data
 {
+
+    /// <summary>
+    /// Represents a TodoItem in the database
+    /// </summary>
     public class TodoItem
     {
         public long Id { get; set; }
@@ -18,11 +22,24 @@ namespace ReactTodo.Data
         public DateTime DeadLine { get; set; }
 
         public Board Board { get; set; }
+
+        /// <summary>
+        /// Used for test
+        /// overrides the Equal method
+        /// </summary>
+        /// <param name="obj">The object to compare with</param>
+        /// <returns>True if the object is the same as this instance of TodoItem</returns>
         public override bool Equals(object obj)
         {
             return Equals(obj as TodoItem);
         }
 
+        /// <summary>
+        /// Used for test
+        /// Checks is the <paramref name="other"/> is the same as this TodoItem 
+        /// </summary>
+        /// <param name="other">The object to compare with</param>
+        /// <returns>True if <paramref name="other"/> is the same as this instance of TodoItem</returns>
         public bool Equals(TodoItem other)
         {
             return other != null &&

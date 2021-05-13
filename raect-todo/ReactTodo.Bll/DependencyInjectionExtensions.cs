@@ -12,11 +12,12 @@ namespace ReactTodo.Bll
     public static class DependencyInjectionExtensions
     {
         public static IServiceCollection AddReactTodoBll(this IServiceCollection services, string connectionString) =>
-            services.AddTodoContext(connectionString).AddTodoItemService();
+            services.AddTodoContext(connectionString).AddTodoItemService().AddBoardService();
 
         public static IServiceCollection AddTodoItemService(this IServiceCollection services) =>
             services.AddScoped<ITodoItemService, TodoItemService>();
-
+        public static IServiceCollection AddBoardService(this IServiceCollection services) =>
+            services.AddScoped<IBoardService, BoardService>();
         public static IServiceCollection AddTodoContext(this IServiceCollection services, string connectionString) =>
             services.AddDbContext<TodoContext>(options => options.UseSqlServer(connectionString));
 

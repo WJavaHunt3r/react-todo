@@ -20,13 +20,11 @@ namespace ReactTodo.Bll
         Task<TodoItemDto> UpdateTodoItemAsync(long id, TodoItemDto todoItemDto);
 
 
-        Task<IReadOnlyCollection<BoardDto>> GetBoardsAsync();
-        Task<BoardDto> GetBoardAsync(long id);
+        
     }
     public record TodoItemService(TodoContext DbContext) : ITodoItemService
     {
-        public async Task<IReadOnlyCollection<BoardDto>> GetBoardsAsync() =>
-            await DbContext.Boards.Select(t => new BoardDto(t.Id, t.Name,ItemsToDTO( t.TodoItems))).ToListAsync();
+        
 
         public async Task<IReadOnlyCollection<TodoItemDto>> GetTodoItemsAsync() =>
             await DbContext.TodoItems.Select(t => new TodoItemDto(t.Id,t.Title, t.Description, t.DeadLine,  t.Priority, t.BoardId))                                       
@@ -63,13 +61,6 @@ namespace ReactTodo.Bll
             return ItemToDTO(todoItem);
         }
 
-        public async Task<BoardDto> GetBoardAsync(long id)
-        {
-            var boards = await GetBoardsAsync();
-            return boards.Where(b=>b.Id == id).First();
-
-        }
-
         public async Task<long> DeleteTodoItemAsync(long id)
         {
             var todoItem = await DbContext.TodoItems.FindAsync(id);
@@ -78,17 +69,12 @@ namespace ReactTodo.Bll
             {
                 return 0;
             }
-            var oldId = todoItem.Id;
             DbContext.TodoItems.Remove(todoItem);
             UpdateBoardAfterDeleteAsync(todoItem.BoardId, todoItem.Priority);
             await DbContext.SaveChangesAsync();
             
             return 1;
         }
-
-        private static BoardDto BoardToDTO(Board board) =>
-            new BoardDto(board.Id, board.Name, ItemsToDTO( board.TodoItems));
-
 
 
         private static TodoItemDto ItemToDTO(TodoItem todoItem) =>
@@ -101,20 +87,10 @@ namespace ReactTodo.Bll
                 todoItem.Priority,
                 todoItem.BoardId
             );
-        private static ICollection<TodoItemDto> ItemsToDTO(ICollection<TodoItem> todoItems) => todoItems.Select(t =>
-            new TodoItemDto
-            (
-                t.Id,
-                t.Title,
-                t.Description,
-                t.DeadLine,
-                t.Priority,
-                t.BoardId
-            )).OrderBy(t=>t.Priority).ToList();
 
         public async Task<TodoItemDto> UpdateTodoItemAsync(long id, TodoItemDto todoItemDto)
         {
-            if (id != todoItemDto.Id)
+            if (id != todoItemDto.Id || string.IsNullOrEmpty(todoItemDto.Title) || string.IsNullOrEmpty(todoItemDto.Description) || DateTime.Today > todoItemDto.DeadLine)
             {
                 return null;
             }
