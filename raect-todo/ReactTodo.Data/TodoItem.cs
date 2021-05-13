@@ -18,6 +18,26 @@ namespace ReactTodo.Data
         public DateTime DeadLine { get; set; }
 
         public Board Board { get; set; }
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as TodoItem);
+        }
+
+        public bool Equals(TodoItem other)
+        {
+            return other != null &&
+                Id == other.Id &&
+                Title == other.Title &&
+                Description == other.Description &&
+                Priority == other.Priority &&
+                BoardId == other.BoardId &&
+                DeadLine == other.DeadLine;
+
+        }
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id, Title, Description, DeadLine, Priority, BoardId, Board);
+        }
 
     }
 }

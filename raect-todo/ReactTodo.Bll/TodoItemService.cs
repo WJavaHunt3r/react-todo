@@ -29,8 +29,7 @@ namespace ReactTodo.Bll
             await DbContext.Boards.Select(t => new BoardDto(t.Id, t.Name,ItemsToDTO( t.TodoItems))).ToListAsync();
 
         public async Task<IReadOnlyCollection<TodoItemDto>> GetTodoItemsAsync() =>
-            await DbContext.TodoItems.Select(t => new TodoItemDto(t.Id,t.Title, t.Description, t.DeadLine,  t.Priority, t.BoardId))
-                                        .OrderBy(t=>t.Priority)
+            await DbContext.TodoItems.Select(t => new TodoItemDto(t.Id,t.Title, t.Description, t.DeadLine,  t.Priority, t.BoardId))                                       
                                             .ToListAsync();
 
         public async Task<TodoItemDto> PostTodoItemAsync(TodoItemDto todoItemDto)
