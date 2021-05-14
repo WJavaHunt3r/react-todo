@@ -57,7 +57,7 @@ namespace ReactTodo.Api.Controllers
         /// <param name="id">Th id of the TodoItem to be deleted</param>
         /// <returns>0 if failed, the id of the removed TodoItem otherwise</returns>
         [HttpDelete("{id}")]
-        public async Task<long> DeleteTodoItemAsync(long id) => await TodoService.DeleteTodoItemAsync(id);
+        public async Task<Boolean> DeleteTodoItemAsync(long id) => await TodoService.DeleteTodoItemAsync(id);
 
         /// <summary>
         /// Put, update a todoItem

@@ -41,7 +41,7 @@ namespace ReactTodo.Bll
         /// </summary>
         /// <param name="id">The Id of the TodoItem to be deleted</param>
         /// <returns>0 if failed, the id of the deleted TodoItem otherwise</returns>
-        Task<long> DeleteTodoItemAsync(long id);
+        Task<Boolean> DeleteTodoItemAsync(long id);
 
         /// <summary>
         /// Updates a todoItem to the given todoItemDto
@@ -97,19 +97,19 @@ namespace ReactTodo.Bll
         }
 
         ///<inheritdoc/>
-        public async Task<long> DeleteTodoItemAsync(long id)
+        public async Task<Boolean> DeleteTodoItemAsync(long id)
         {
             var todoItem = await DbContext.TodoItems.FindAsync(id);
 
             if (todoItem == null)
             {
-                return 0;
+                return false;
             }
             DbContext.TodoItems.Remove(todoItem);
             UpdateBoardAfterDeleteAsync(todoItem.BoardId, todoItem.Priority);
             await DbContext.SaveChangesAsync();
             
-            return 1;
+            return true;
         }
 
         /// <summary>
