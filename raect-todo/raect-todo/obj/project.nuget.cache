@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qd/F1X3XZruyrV7ma5nc6W+H9u31mODrMkDnRtUJ0FecPv66nK5EKwjSsod4ElhEmvmt7BzKFTUwazQf5ZHoRw==",
+  "dgSpecHash": "RnGA3NSz+lJrqZ/KTOzDgD8MQwj4xmgUcEd9OWPovZXiZKft5jTnB2NN9EEtdrr7xzA0j0eOOXX881r8Ls2s0w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\wagne\\OneDrive\\Dokumentumok\\Temalabor\\react-todo\\raect-todo\\raect-todo\\ReactTodo.Api.csproj",
+  "projectFilePath": "C:\\Users\\wagne\\Source\\Repos\\react\\raect-todo\\raect-todo\\ReactTodo.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\wagne\\.nuget\\packages\\docfx\\2.57.2\\docfx.2.57.2.nupkg.sha512",
     "C:\\Users\\wagne\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

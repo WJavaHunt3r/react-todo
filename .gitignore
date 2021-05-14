@@ -30,3 +30,5 @@ raect-todo/.vs/raect-todo/v16/.suo
 /raect-todo/docfx_project/docfx_project.csproj
 /raect-todo/ReatTodo.UnitTests/bin/Debug/net5.0
 /raect-todo/ReatTodo.UnitTests/obj
+/.vs/react/v16
+/.vs

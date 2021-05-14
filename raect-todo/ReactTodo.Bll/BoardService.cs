@@ -29,8 +29,13 @@ namespace ReactTodo.Bll
     }
 
     ///<inheritdoc/>
-    public sealed record BoardService(TodoContext DbContext) : IBoardService
+    public class BoardService : IBoardService
     {
+        private TodoContext DbContext;
+        public BoardService(TodoContext dbContext)
+        {
+            DbContext = dbContext;
+        }
         ///<inheritdoc/>
         public async Task<IReadOnlyCollection<BoardDto>> GetBoardsAsync()
         {
