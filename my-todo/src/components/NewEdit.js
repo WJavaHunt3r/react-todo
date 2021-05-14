@@ -147,7 +147,7 @@ function NewEdit() {
         "title": name,
         "description": description,
         "deadLine": newDate,
-        "priority": 0,
+        "priority": task.priority,
         "boardId": 0
       };
 
