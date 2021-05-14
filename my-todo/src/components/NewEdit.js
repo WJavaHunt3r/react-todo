@@ -1,8 +1,27 @@
 import 'date-fns';
 import React, { useEffect, useState } from "react";
-import { Button, Grid, Paper, TextField, Typography } from '@material-ui/core';
+import { Button, Grid, Modal, Paper, TextField, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useLocation, Link } from 'react-router-dom'
+//import ModalWindow from './ModalWindow';
+
+function rand() {
+  return Math.round(Math.random() * 20) - 10;
+}
+
+function getModalStyle() {
+  const top = 50 + rand();
+  const left = 50 + rand();
+
+  return {
+    top: `${top}%`,
+    left: `${left}%`,
+    transform: `translate(-${top}%, -${left}%)`,
+  };
+}
+
+
+
 const useStyles = makeStyles((theme) => ({
   grid: {
 
@@ -30,15 +49,30 @@ const useStyles = makeStyles((theme) => ({
     width: "50ch",
     justifyContent: "center",
     margin: 5,
-  }
+  },
+  paper: {
+    position: 'absolute',
+    width: 400,
+    backgroundColor: theme.palette.background.paper,
+    border: '2px solid #000',
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+  },
 }));
 
 function NewEdit() {
   const classes = useStyles();
+  const [modalStyle] = useState(getModalStyle);
   const loc = useLocation();
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalTitle, setModalTitle] = useState("");
+  const [modalTDesc, setModalDesc] = useState("");
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [task, setTask] = useState("");
+  const handleClose = () => {
+    setModalOpen(false);
+  };
   const [newDate, setNewDate] = useState('');
   function handleNewDate(e) {
     setNewDate(e.target.value);
@@ -79,7 +113,7 @@ function NewEdit() {
   }, [loc])
 
   if (error) {
-    return <div>An Error occourd:{error.message}</div>
+    return <div style={{ color: "white" }}>An Error occourd:{error.message}</div>
   }
   if (!isLoaded) {
     //return <div>Still loading...</div>
@@ -133,8 +167,26 @@ function NewEdit() {
         </Button>
         <Button id="back" type="submit" color="primary" size="large" variant="contained" component={Link} to={`/`} className={classes.button}>
           Home
-                  </Button>
+        </Button>
 
+        <Modal
+          open={modalOpen}
+          onClose={handleClose}
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description"
+        >
+          <div style={{ modalStyle }} className={classes.paper}>
+            <h2 id="simple-modal-title">{modalTitle}</h2>
+            <p id="simple-modal-description">
+              {modalTDesc}
+            </p>
+            <button color="primary" size="large" variant="contained" type="button" onClick={handleClose}>
+              Got it
+            </button>
+          </div>
+
+
+        </Modal>
       </Grid>
     </Paper>
   );
@@ -152,11 +204,6 @@ function NewEdit() {
       };
 
       (loc.pathname !== "/new") ? editTask(todoItem) : addTask(todoItem);
-
-
-      setName("");
-      setDescription("");
-      setNewDate("");
     }
   }
   function addTask(todoItem) {
@@ -170,9 +217,18 @@ function NewEdit() {
       .then(data => data.json())
       .then(
         () => {
-          //console.log(result);
-
-        })
+          setModalTitle("Successfully added new Todo");
+          setModalOpen(true);
+          setName("");
+          setDescription("");
+          setNewDate("");
+        }), (error) => {
+          setIsLoaded(true);
+          setError(error);
+          setModalTitle("An error occourd while adding the Todo");
+          setModalDesc(error);
+          setModalOpen(true);
+        }
 
   }
 
@@ -189,8 +245,16 @@ function NewEdit() {
       .then(data => data.json())
       .then(
         () => {
-          //console.log(result);
-        })
+          setModalTitle(" Todo Successfully edited");
+          setModalOpen(true);
+
+        }), (error) => {
+          setIsLoaded(true);
+          setError(error);
+          setModalTitle("An error occourd while editing the Todo");
+          setModalDesc(error);
+          setModalOpen(true);
+        }
 
   }
 }

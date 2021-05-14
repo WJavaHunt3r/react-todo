@@ -55,8 +55,12 @@ function Home() {
       .then(
         resp => resp.json())
       .then(() =>
-        getBoards()
-      )
+        console.log("Todo priority updated")
+      ),
+      (error) => {
+        setIsLoaded(true);
+        setError(error);
+      }
   };
 
   function getBoards() {
@@ -79,7 +83,7 @@ function Home() {
     getBoards();
   }, [])
   if (error) {
-    return <div>An Error occourd:{error.message}</div>
+    return <div style={{ color: "white" }}>An Error occourd:{error.message}</div>
   }
   if (!isLoaded) {
     //return <div>Still loading...</div>

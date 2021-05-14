@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ReactTodo.Api.Controllers.BoardsController.html",
-          "hash": "3kT0LZAuRCQg4IGUeTjhDqVOINyRGKiycx+MElAnIso="
+          "hash": "lYr5ZiWqATbKPCSQGghBOQabQX+ZTGAyuoW35Akq2so="
         }
       },
       "is_incremental": false,
@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ReactTodo.Api.Controllers.TodoItemsController.html",
-          "hash": "SLOS2qdR1ElcX8kYFz64d0SDrIqb1DWMSXWwcvnUenQ="
+          "hash": "ypKz9EWgVX5K6QfgoqyBD+UgurM2YztvY+5Rii2gFnM="
         }
       },
       "is_incremental": false,
@@ -45,7 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ReactTodo.Bll.DependencyInjectionExtensions.html",
-          "hash": "RyF3x3ccLG5KZcdH0EKxY0WlChC/nm1A3fXqtKVD6mU="
+          "hash": "g63urKD0ecXJfDv52vxNQX+uG24fRq5E78J/JHiwf6M="
         }
       },
       "is_incremental": false,
@@ -57,7 +57,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ReactTodo.Bll.IBoardService.html",
-          "hash": "DW1rMcRKEwvldyzUH4xuHIjX2Bd8zDnV+AjYPbpfsXs="
+          "hash": "xVQI3Uvw9HNxPzm24gvv5P6nh9zoyDdS78fEQrdG0dU="
         }
       },
       "is_incremental": false,
@@ -69,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ReactTodo.Bll.ITodoItemService.html",
-          "hash": "ktUPt9uLc618dBJbLrLxUxRONHP5sJaLZzwH8FWvtaM="
+          "hash": "uNqOyaH34A5qvo+2BJvhJBDc0oHrLt/sCSNoqpEG1f0="
         }
       },
       "is_incremental": false,
@@ -93,7 +93,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ReactTodo.Data.Board.html",
-          "hash": "IEUmfRjKgiEV7Ircnku+vMx7FjzMswZXu5kZdYZcK44="
+          "hash": "2W0MP6tWl+GSAAm5XRZbvjSTNRBkHqXVePwxhiQuH4w="
         }
       },
       "is_incremental": false,
@@ -105,7 +105,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ReactTodo.Data.Migrations.init.html",
-          "hash": "MqoKGHiQR1dIOK0IFddsleswEpGahv5Q53mxp9S4FMw="
+          "hash": "VE5LKUnMHbjM52gZ7dMz+B9rABsERanhbvc6IvwAmjw="
         }
       },
       "is_incremental": false,
@@ -129,7 +129,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ReactTodo.Data.TodoContext.html",
-          "hash": "/kfxFOSd17UEIRfoxeBYZw8nAjpF5r2+rkfHA+nKpiU="
+          "hash": "PdMlUwW/1pnswc0F8WjF+syUp20OL/6CUwULCW71E6s="
         }
       },
       "is_incremental": false,
@@ -141,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ReactTodo.Data.TodoItem.html",
-          "hash": "s4SsECboRRYcRO8WwNdDYuH0WPoPaZl1aDANEYb9VgA="
+          "hash": "YpN/kyaHbqEKCoc2RDDKYlqtJwmXMWq+GRlemdnQ/Dc="
         }
       },
       "is_incremental": false,
@@ -165,7 +165,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ReactTodo.Tests.TestWebFactory.html",
-          "hash": "riJlah0bJsGtKGZbig9oYpFVkP7tSVq3yneL46W7W+4="
+          "hash": "NKXh9XezN4aNTrRrYXC23tAA0Qp7L4gAzMG1r09sV64="
         }
       },
       "is_incremental": false,
@@ -177,7 +177,19 @@
       "output": {
         ".html": {
           "relative_path": "api/ReactTodo.Tests.TodoItemTests.html",
-          "hash": "wYuJA8WzbC/0nql32bfBo0E7eNnCRPko84FnD9NgXAQ="
+          "hash": "9j3Azzk9W231beSD4IzJxNVVpvqShaFoM8QBfQ6HlxA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReactTodo.Tests.TodoItemUnitTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReactTodo.Tests.TodoItemUnitTests.html",
+          "hash": "xVxAvJXGZVkMlpqXPlTVpaHayhzZSqRyHBYhhRB3lUI="
         }
       },
       "is_incremental": false,
@@ -189,7 +201,55 @@
       "output": {
         ".html": {
           "relative_path": "api/ReactTodo.Tests.html",
-          "hash": "TKUQInl3YCY5UUp42Jd6Gw4x3noyuE6tmAZ4ix97A1E="
+          "hash": "chnnkB0K3rIPfIsleHXSD2tRWqUDR+2+EoKhYA9BypM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReatTodo.Tests.UnitTestData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReatTodo.Tests.UnitTestData.html",
+          "hash": "kwnkwRMlpZnjSaIHOnGth9ZRLh5lJLA7UK6fJdPbUpA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReatTodo.Tests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReatTodo.Tests.html",
+          "hash": "KHqD6iUy7UwNOfXX6qP53MIiJcsht5oe+mvku7HoMpM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReatTodo.UnitTests.UnitTestData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReatTodo.UnitTests.UnitTestData.html",
+          "hash": "RQm7B1w2+KjZRXrxgp+8IM2fLAE2Z/9tgOV9fGsfmOk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ReatTodo.UnitTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ReatTodo.UnitTests.html",
+          "hash": "DrEC1tPPU3f5kmkflypGQq4hIxkxy4rS1sfRQ8D4jPY="
         }
       },
       "is_incremental": false,
@@ -201,7 +261,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "EdyPVtJaE+ZgcQH/iYrMImGhrEunNjsClBeZgTNaZQw="
+          "hash": "a6dAqaR0tyFftmqv8cU74EmXxxo/OFJbuVO+1Ec9I2Y="
         }
       },
       "is_incremental": false,
@@ -213,7 +273,7 @@
       "output": {
         ".html": {
           "relative_path": "api/raect_todo.Program.html",
-          "hash": "1N8vLqEoIyuGyKRIb2TpEDK8wXtTppkVH5beFV5GRQg="
+          "hash": "Ipm1+fNbcEl3FUGbi3qeFQMjX1TCywoZ4tZ4lkrOzns="
         }
       },
       "is_incremental": false,
@@ -225,7 +285,7 @@
       "output": {
         ".html": {
           "relative_path": "api/raect_todo.Startup.html",
-          "hash": "1bkcXFsGhBtPnZGzUH+IvCBw50A1UQGeiVr6DgqsyjI="
+          "hash": "ViL9GHp7vqU+hiWgszQgTnCMnc27ufkT8C1VPBbURyc="
         }
       },
       "is_incremental": false,
@@ -249,7 +309,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "DyixwGMwQxhOtYooF4+K+DL8JRhOVCfgOTeCxdhMM1k="
+          "hash": "Usd+/hhrlVMlzVm2BD0hmyZ0r0P7zw7vHKf/CV7BRus="
         }
       },
       "is_incremental": false,
@@ -261,10 +321,10 @@
       "output": {
         ".html": {
           "relative_path": "articles/intro.html",
-          "hash": "8I1GJzVm2+nMTUyablOB8PtMJqH+UnvAgVG49EiW4a0="
+          "hash": "mKGmH7/tzcqWQL6rvkLG+HvAk2tbE46Wqafb3fftrOY="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -285,10 +345,10 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "c+aKAFl7xG/PrwhBP7DunM9VGyO1SEoQ8AuVoBIgY+c="
+          "hash": "zNPrbGn1sVP6dRkQeYgj2Q/PjKID7jBDfVZEi3Y083Y="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -307,25 +367,23 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": false,
-        "details": "Disable incremental build by force rebuild option.",
+        "can_incremental": true,
         "incrementalPhase": "build",
         "total_file_count": 0,
-        "skipped_file_count": 0,
-        "full_build_reason_code": "ForceRebuild"
+        "skipped_file_count": 0
       },
       "processors": {
         "ConceptualDocumentProcessor": {
-          "can_incremental": false,
+          "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 3,
-          "skipped_file_count": 0
+          "skipped_file_count": 3
         },
         "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
+          "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 19,
-          "skipped_file_count": 0
+          "total_file_count": 24,
+          "skipped_file_count": 7
         },
         "TocDocumentProcessor": {
           "can_incremental": false,
@@ -338,8 +396,8 @@
     },
     {
       "status": {
-        "can_incremental": false,
-        "details": "Cannot support incremental post processing, the reason is: it's disabled.",
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
         "incrementalPhase": "postProcessing",
         "total_file_count": 0,
         "skipped_file_count": 0

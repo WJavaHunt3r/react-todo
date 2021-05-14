@@ -61,10 +61,6 @@ namespace ReactTodo.Api.Controllers
         [HttpGet("{id:long}")]
         public async Task<ActionResult<TodoItemDto>> GetTodoItem(long id)
         {
-            if (id == null)
-            {
-                return BadRequest();
-            }
            var todo = await TodoService.GetTodoItemAsync(id);
            return todo == null ? NotFound() : Ok(todo);
         }
@@ -90,12 +86,12 @@ namespace ReactTodo.Api.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult<TodoItemDto>> UpdateTodoItemAsync(long id, TodoItemDto todoItemDto)
         {
-            if(id == null || todoItemDto == null || id !=  todoItemDto.Id)
+            if(todoItemDto == null || id !=  todoItemDto.Id)
             {
                 return BadRequest();
             }
             var todo = await TodoService.UpdateTodoItemAsync(id, todoItemDto);
-            return todo == null ? NotFound() : NotFound();
+            return todo == null ? NotFound() : Ok(todo);
         }
     }
 }

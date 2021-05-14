@@ -631,10 +631,10 @@ public class TodoItemsController : ControllerBase</code></pre>
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WJavaHunt3r/react-todo/new/Documentation-and-api-fix/apiSpec/new?filename=ReactTodo_Api_Controllers_TodoItemsController__ctor_ReactTodo_Bll_ITodoItemService_.md&amp;value=---%0Auid%3A%20ReactTodo.Api.Controllers.TodoItemsController.%23ctor(ReactTodo.Bll.ITodoItemService)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WJavaHunt3r/react-todo/new/Fix-api-responses/apiSpec/new?filename=ReactTodo_Api_Controllers_TodoItemsController__ctor_ReactTodo_Bll_ITodoItemService_.md&amp;value=---%0Auid%3A%20ReactTodo.Api.Controllers.TodoItemsController.%23ctor(ReactTodo.Bll.ITodoItemService)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WJavaHunt3r/react-todo/blob/Documentation-and-api-fix/raect-todo/raect-todo/Controllers/TodoItemsController.cs/#L26">View Source</a>
+    <a href="https://github.com/WJavaHunt3r/react-todo/blob/Fix-api-responses/raect-todo/raect-todo/Controllers/TodoItemsController.cs/#L26">View Source</a>
   </span>
   <a id="ReactTodo_Api_Controllers_TodoItemsController__ctor_" data-uid="ReactTodo.Api.Controllers.TodoItemsController.#ctor*"></a>
   <h4 id="ReactTodo_Api_Controllers_TodoItemsController__ctor_ReactTodo_Bll_ITodoItemService_" data-uid="ReactTodo.Api.Controllers.TodoItemsController.#ctor(ReactTodo.Bll.ITodoItemService)">TodoItemsController(ITodoItemService)</h4>
@@ -666,10 +666,10 @@ public class TodoItemsController : ControllerBase</code></pre>
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WJavaHunt3r/react-todo/new/Documentation-and-api-fix/apiSpec/new?filename=ReactTodo_Api_Controllers_TodoItemsController_DeleteTodoItemAsync_System_Int64_.md&amp;value=---%0Auid%3A%20ReactTodo.Api.Controllers.TodoItemsController.DeleteTodoItemAsync(System.Int64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WJavaHunt3r/react-todo/new/Fix-api-responses/apiSpec/new?filename=ReactTodo_Api_Controllers_TodoItemsController_DeleteTodoItemAsync_System_Int64_.md&amp;value=---%0Auid%3A%20ReactTodo.Api.Controllers.TodoItemsController.DeleteTodoItemAsync(System.Int64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WJavaHunt3r/react-todo/blob/Documentation-and-api-fix/raect-todo/raect-todo/Controllers/TodoItemsController.cs/#L59">View Source</a>
+    <a href="https://github.com/WJavaHunt3r/react-todo/blob/Fix-api-responses/raect-todo/raect-todo/Controllers/TodoItemsController.cs/#L73">View Source</a>
   </span>
   <a id="ReactTodo_Api_Controllers_TodoItemsController_DeleteTodoItemAsync_" data-uid="ReactTodo.Api.Controllers.TodoItemsController.DeleteTodoItemAsync*"></a>
   <h4 id="ReactTodo_Api_Controllers_TodoItemsController_DeleteTodoItemAsync_System_Int64_" data-uid="ReactTodo.Api.Controllers.TodoItemsController.DeleteTodoItemAsync(System.Int64)">DeleteTodoItemAsync(Int64)</h4>
@@ -679,7 +679,7 @@ public class TodoItemsController : ControllerBase</code></pre>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[HttpDelete(&quot;{id}&quot;)]
-public Task&lt;long&gt; DeleteTodoItemAsync(long id)</code></pre>
+public Task&lt;ActionResult&gt; DeleteTodoItemAsync(long id)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -709,7 +709,7 @@ public Task&lt;long&gt; DeleteTodoItemAsync(long id)</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Microsoft.AspNetCore.Mvc.ActionResult</span>&gt;</td>
         <td><p>0 if failed, the id of the removed TodoItem otherwise</p>
 </td>
       </tr>
@@ -717,20 +717,20 @@ public Task&lt;long&gt; DeleteTodoItemAsync(long id)</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WJavaHunt3r/react-todo/new/Documentation-and-api-fix/apiSpec/new?filename=ReactTodo_Api_Controllers_TodoItemsController_GetTodoItemAsync_System_Int64_.md&amp;value=---%0Auid%3A%20ReactTodo.Api.Controllers.TodoItemsController.GetTodoItemAsync(System.Int64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WJavaHunt3r/react-todo/new/Fix-api-responses/apiSpec/new?filename=ReactTodo_Api_Controllers_TodoItemsController_GetTodoItem_System_Int64_.md&amp;value=---%0Auid%3A%20ReactTodo.Api.Controllers.TodoItemsController.GetTodoItem(System.Int64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WJavaHunt3r/react-todo/blob/Documentation-and-api-fix/raect-todo/raect-todo/Controllers/TodoItemsController.cs/#L51">View Source</a>
+    <a href="https://github.com/WJavaHunt3r/react-todo/blob/Fix-api-responses/raect-todo/raect-todo/Controllers/TodoItemsController.cs/#L61">View Source</a>
   </span>
-  <a id="ReactTodo_Api_Controllers_TodoItemsController_GetTodoItemAsync_" data-uid="ReactTodo.Api.Controllers.TodoItemsController.GetTodoItemAsync*"></a>
-  <h4 id="ReactTodo_Api_Controllers_TodoItemsController_GetTodoItemAsync_System_Int64_" data-uid="ReactTodo.Api.Controllers.TodoItemsController.GetTodoItemAsync(System.Int64)">GetTodoItemAsync(Int64)</h4>
+  <a id="ReactTodo_Api_Controllers_TodoItemsController_GetTodoItem_" data-uid="ReactTodo.Api.Controllers.TodoItemsController.GetTodoItem*"></a>
+  <h4 id="ReactTodo_Api_Controllers_TodoItemsController_GetTodoItem_System_Int64_" data-uid="ReactTodo.Api.Controllers.TodoItemsController.GetTodoItem(System.Int64)">GetTodoItem(Int64)</h4>
   <div class="markdown level1 summary"><p>Get a todoitem by its id</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[HttpGet(&quot;{id}&quot;)]
-public Task&lt;TodoItemDto&gt; GetTodoItemAsync(long id)</code></pre>
+    <pre><code class="lang-csharp hljs">[HttpGet(&quot;{id:long}&quot;)]
+public Task&lt;ActionResult&lt;TodoItemDto&gt;&gt; GetTodoItem(long id)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -760,7 +760,7 @@ public Task&lt;TodoItemDto&gt; GetTodoItemAsync(long id)</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">TodoItemDto</span>&gt;</td>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Microsoft.AspNetCore.Mvc.ActionResult</span>&lt;<span class="xref">TodoItemDto</span>&gt;&gt;</td>
         <td><p>null if not found, the todoItem otherwise</p>
 </td>
       </tr>
@@ -768,10 +768,10 @@ public Task&lt;TodoItemDto&gt; GetTodoItemAsync(long id)</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WJavaHunt3r/react-todo/new/Documentation-and-api-fix/apiSpec/new?filename=ReactTodo_Api_Controllers_TodoItemsController_GetTodoItemsAsync.md&amp;value=---%0Auid%3A%20ReactTodo.Api.Controllers.TodoItemsController.GetTodoItemsAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WJavaHunt3r/react-todo/new/Fix-api-responses/apiSpec/new?filename=ReactTodo_Api_Controllers_TodoItemsController_GetTodoItemsAsync.md&amp;value=---%0Auid%3A%20ReactTodo.Api.Controllers.TodoItemsController.GetTodoItemsAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WJavaHunt3r/react-todo/blob/Documentation-and-api-fix/raect-todo/raect-todo/Controllers/TodoItemsController.cs/#L35">View Source</a>
+    <a href="https://github.com/WJavaHunt3r/react-todo/blob/Fix-api-responses/raect-todo/raect-todo/Controllers/TodoItemsController.cs/#L35">View Source</a>
   </span>
   <a id="ReactTodo_Api_Controllers_TodoItemsController_GetTodoItemsAsync_" data-uid="ReactTodo.Api.Controllers.TodoItemsController.GetTodoItemsAsync*"></a>
   <h4 id="ReactTodo_Api_Controllers_TodoItemsController_GetTodoItemsAsync" data-uid="ReactTodo.Api.Controllers.TodoItemsController.GetTodoItemsAsync">GetTodoItemsAsync()</h4>
@@ -781,7 +781,7 @@ public Task&lt;TodoItemDto&gt; GetTodoItemAsync(long id)</code></pre>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[HttpGet]
-public Task&lt;IReadOnlyCollection&lt;TodoItemDto&gt;&gt; GetTodoItemsAsync()</code></pre>
+public Task&lt;ActionResult&lt;IReadOnlyCollection&lt;TodoItemDto&gt;&gt;&gt; GetTodoItemsAsync()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -793,7 +793,7 @@ public Task&lt;IReadOnlyCollection&lt;TodoItemDto&gt;&gt; GetTodoItemsAsync()</c
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.IReadOnlyCollection</span>&lt;<span class="xref">TodoItemDto</span>&gt;&gt;</td>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Microsoft.AspNetCore.Mvc.ActionResult</span>&lt;<span class="xref">System.Collections.Generic.IReadOnlyCollection</span>&lt;<span class="xref">TodoItemDto</span>&gt;&gt;&gt;</td>
         <td><p>The todoItems in the database</p>
 </td>
       </tr>
@@ -801,10 +801,10 @@ public Task&lt;IReadOnlyCollection&lt;TodoItemDto&gt;&gt; GetTodoItemsAsync()</c
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WJavaHunt3r/react-todo/new/Documentation-and-api-fix/apiSpec/new?filename=ReactTodo_Api_Controllers_TodoItemsController_PostTodoItemAsync_TodoItemDto_.md&amp;value=---%0Auid%3A%20ReactTodo.Api.Controllers.TodoItemsController.PostTodoItemAsync(TodoItemDto)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WJavaHunt3r/react-todo/new/Fix-api-responses/apiSpec/new?filename=ReactTodo_Api_Controllers_TodoItemsController_PostTodoItemAsync_TodoItemDto_.md&amp;value=---%0Auid%3A%20ReactTodo.Api.Controllers.TodoItemsController.PostTodoItemAsync(TodoItemDto)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WJavaHunt3r/react-todo/blob/Documentation-and-api-fix/raect-todo/raect-todo/Controllers/TodoItemsController.cs/#L43">View Source</a>
+    <a href="https://github.com/WJavaHunt3r/react-todo/blob/Fix-api-responses/raect-todo/raect-todo/Controllers/TodoItemsController.cs/#L47">View Source</a>
   </span>
   <a id="ReactTodo_Api_Controllers_TodoItemsController_PostTodoItemAsync_" data-uid="ReactTodo.Api.Controllers.TodoItemsController.PostTodoItemAsync*"></a>
   <h4 id="ReactTodo_Api_Controllers_TodoItemsController_PostTodoItemAsync_TodoItemDto_" data-uid="ReactTodo.Api.Controllers.TodoItemsController.PostTodoItemAsync(TodoItemDto)">PostTodoItemAsync(TodoItemDto)</h4>
@@ -814,7 +814,7 @@ public Task&lt;IReadOnlyCollection&lt;TodoItemDto&gt;&gt; GetTodoItemsAsync()</c
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[HttpPost]
-public Task&lt;TodoItemDto&gt; PostTodoItemAsync(TodoItemDto todoItemDto)</code></pre>
+public Task&lt;ActionResult&lt;TodoItemDto&gt;&gt; PostTodoItemAsync(TodoItemDto todoItemDto)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -844,7 +844,7 @@ public Task&lt;TodoItemDto&gt; PostTodoItemAsync(TodoItemDto todoItemDto)</code>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">TodoItemDto</span>&gt;</td>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Microsoft.AspNetCore.Mvc.ActionResult</span>&lt;<span class="xref">TodoItemDto</span>&gt;&gt;</td>
         <td><p>Null if failed, The todoItem otherwise</p>
 </td>
       </tr>
@@ -852,10 +852,10 @@ public Task&lt;TodoItemDto&gt; PostTodoItemAsync(TodoItemDto todoItemDto)</code>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WJavaHunt3r/react-todo/new/Documentation-and-api-fix/apiSpec/new?filename=ReactTodo_Api_Controllers_TodoItemsController_UpdateTodoItemAsync_System_Int64_TodoItemDto_.md&amp;value=---%0Auid%3A%20ReactTodo.Api.Controllers.TodoItemsController.UpdateTodoItemAsync(System.Int64%2CTodoItemDto)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WJavaHunt3r/react-todo/new/Fix-api-responses/apiSpec/new?filename=ReactTodo_Api_Controllers_TodoItemsController_UpdateTodoItemAsync_System_Int64_TodoItemDto_.md&amp;value=---%0Auid%3A%20ReactTodo.Api.Controllers.TodoItemsController.UpdateTodoItemAsync(System.Int64%2CTodoItemDto)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WJavaHunt3r/react-todo/blob/Documentation-and-api-fix/raect-todo/raect-todo/Controllers/TodoItemsController.cs/#L68">View Source</a>
+    <a href="https://github.com/WJavaHunt3r/react-todo/blob/Fix-api-responses/raect-todo/raect-todo/Controllers/TodoItemsController.cs/#L86">View Source</a>
   </span>
   <a id="ReactTodo_Api_Controllers_TodoItemsController_UpdateTodoItemAsync_" data-uid="ReactTodo.Api.Controllers.TodoItemsController.UpdateTodoItemAsync*"></a>
   <h4 id="ReactTodo_Api_Controllers_TodoItemsController_UpdateTodoItemAsync_System_Int64_TodoItemDto_" data-uid="ReactTodo.Api.Controllers.TodoItemsController.UpdateTodoItemAsync(System.Int64,TodoItemDto)">UpdateTodoItemAsync(Int64, TodoItemDto)</h4>
@@ -865,7 +865,7 @@ public Task&lt;TodoItemDto&gt; PostTodoItemAsync(TodoItemDto todoItemDto)</code>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[HttpPut(&quot;{id}&quot;)]
-public Task&lt;TodoItemDto&gt; UpdateTodoItemAsync(long id, TodoItemDto todoItemDto)</code></pre>
+public Task&lt;ActionResult&lt;TodoItemDto&gt;&gt; UpdateTodoItemAsync(long id, TodoItemDto todoItemDto)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -901,7 +901,7 @@ public Task&lt;TodoItemDto&gt; UpdateTodoItemAsync(long id, TodoItemDto todoItem
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">TodoItemDto</span>&gt;</td>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Microsoft.AspNetCore.Mvc.ActionResult</span>&lt;<span class="xref">TodoItemDto</span>&gt;&gt;</td>
         <td><p>Null if failed or not found, the new TodoItem otherwise</p>
 </td>
       </tr>
@@ -915,10 +915,10 @@ public Task&lt;TodoItemDto&gt; UpdateTodoItemAsync(long id, TodoItemDto todoItem
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/WJavaHunt3r/react-todo/new/Documentation-and-api-fix/apiSpec/new?filename=ReactTodo_Api_Controllers_TodoItemsController.md&amp;value=---%0Auid%3A%20ReactTodo.Api.Controllers.TodoItemsController%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/WJavaHunt3r/react-todo/new/Fix-api-responses/apiSpec/new?filename=ReactTodo_Api_Controllers_TodoItemsController.md&amp;value=---%0Auid%3A%20ReactTodo.Api.Controllers.TodoItemsController%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WJavaHunt3r/react-todo/blob/Documentation-and-api-fix/raect-todo/raect-todo/Controllers/TodoItemsController.cs/#L16" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WJavaHunt3r/react-todo/blob/Fix-api-responses/raect-todo/raect-todo/Controllers/TodoItemsController.cs/#L16" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
