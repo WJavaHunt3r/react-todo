@@ -32,7 +32,11 @@ namespace ReactTodo.Api.Controllers
         /// </summary>
         /// <returns>The boards in the database</returns>
         [HttpGet]
-        public async Task<IReadOnlyCollection<BoardDto>> GetBoardsAsync() => await BoardService.GetBoardsAsync();
+        public async Task<ActionResult<IReadOnlyCollection<BoardDto>>> GetBoardsAsync()
+        {
+            var boards = await BoardService.GetBoardsAsync();
+            return Ok(boards);
+        }
 
         /// <summary>
         /// Get a board by its id
@@ -40,7 +44,11 @@ namespace ReactTodo.Api.Controllers
         /// <param name="id">The id of the bopard to be returned</param>
         /// <returns>null if not found, else the Dto of the Board</returns>
         [HttpGet("{id}")]
-        public async Task<BoardDto> GetBoardAsync(long id) => await BoardService.GetBoardAsync(id);
+        public async Task<ActionResult<BoardDto>> GetBoardAsync(long id)
+        {
+            var board = await BoardService.GetBoardAsync(id);
+            return board == null ? NotFound() : Ok(board);
+        }
     }
 
 }

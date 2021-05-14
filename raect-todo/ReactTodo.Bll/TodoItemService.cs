@@ -97,7 +97,7 @@ namespace ReactTodo.Bll
         }
 
         ///<inheritdoc/>
-        public async Task<Boolean> DeleteTodoItemAsync(long id)
+        public async Task<bool> DeleteTodoItemAsync(long id)
         {
             var todoItem = await DbContext.TodoItems.FindAsync(id);
 
@@ -156,15 +156,13 @@ namespace ReactTodo.Bll
             {
                 PriorityDown(todoItemDto.BoardId, todoItemDto.Priority, oldPriority);
             }
+
             todoItem.Title = todoItemDto.Title;
             todoItem.DeadLine = todoItemDto.DeadLine;
             todoItem.Description = todoItemDto.Description;
             todoItem.Priority = todoItemDto.Priority;
             todoItem.BoardId = todoItemDto.BoardId;
             
-
-
-
             try
             {
                 await DbContext.SaveChangesAsync();
