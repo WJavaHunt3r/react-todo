@@ -7748,11 +7748,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\wagne\\OneDrive\\Dokumentumok\\Temalabor\\react-todo\\raect-todo\\raect-todo\\ReactTodo.Api.csproj",
+      "projectUniqueName": "C:\\Users\\wagne\\Source\\Repos\\react\\raect-todo\\raect-todo\\ReactTodo.Api.csproj",
       "projectName": "ReactTodo.Api",
-      "projectPath": "C:\\Users\\wagne\\OneDrive\\Dokumentumok\\Temalabor\\react-todo\\raect-todo\\raect-todo\\ReactTodo.Api.csproj",
+      "projectPath": "C:\\Users\\wagne\\Source\\Repos\\react\\raect-todo\\raect-todo\\ReactTodo.Api.csproj",
       "packagesPath": "C:\\Users\\wagne\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\wagne\\OneDrive\\Dokumentumok\\Temalabor\\react-todo\\raect-todo\\raect-todo\\obj\\",
+      "outputPath": "C:\\Users\\wagne\\Source\\Repos\\react\\raect-todo\\raect-todo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\wagne\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -7769,8 +7769,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\wagne\\OneDrive\\Dokumentumok\\Temalabor\\react-todo\\raect-todo\\ReactTodo.Bll\\ReactTodo.Bll.csproj": {
-              "projectPath": "C:\\Users\\wagne\\OneDrive\\Dokumentumok\\Temalabor\\react-todo\\raect-todo\\ReactTodo.Bll\\ReactTodo.Bll.csproj"
+            "C:\\Users\\wagne\\Source\\Repos\\react\\raect-todo\\ReactTodo.Bll\\ReactTodo.Bll.csproj": {
+              "projectPath": "C:\\Users\\wagne\\Source\\Repos\\react\\raect-todo\\ReactTodo.Bll\\ReactTodo.Bll.csproj"
             }
           }
         }
